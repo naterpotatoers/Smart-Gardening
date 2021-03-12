@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [15.x]
         
     defaults:
       run:
@@ -28,8 +28,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Entering frontend directory...
-      run: cd frontend
+        
     - name: Installing frontend...
       run: npm install
     - name: Testing frontend...
