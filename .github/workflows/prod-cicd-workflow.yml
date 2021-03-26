@@ -1,4 +1,4 @@
-# This workflow will do a clean install of node dependencies, build the source code, run tests, and deploy to AWS S3
+# This workflow will do a clean install of node dependencies, build the source code, run tests, and deploy to AWS S3.
 name: Smart-Farm CI/CD
 
 on:
@@ -43,4 +43,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "build"
+          SOURCE_DIR: "./frontend/build"
