@@ -38,8 +38,8 @@ jobs:
       - name: Building frontend...
         run: npm build
 
-      - name: Current path...
-        run: pwd
+      - name: Current files...
+        run: ls
 
       - name: Deploy to AWS S3
-        run: aws s3 sync ./frontend/build s3://${{ secrets.AWS_PRODUCTION_BUCKET_NAME }} --delete
+        run: aws s3 sync ./build s3://${{ secrets.AWS_PRODUCTION_BUCKET_NAME }} --delete
