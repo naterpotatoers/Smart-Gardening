@@ -6,6 +6,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Smart Garden</h1>
+        <h2>By: N,M,R,V</h2>
         <p>Smart Garden Frontend</p>
  
       </header>
