@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap");
 
 /* base styles */
 * {
@@ -6,9 +6,7 @@
   font-family: "Martel";
   color: #000000;
   background-color: #6c8865;
-  }
-
-
+}
 
 .navbar {
   padding: 20px;
@@ -16,36 +14,30 @@
   align-items: center;
   max-width: auto;
   margin: 0 auto;
-  border-bottom: 1px solid #F59573;
-  background-color: #FFCD82;
-  }
+  border-bottom: 1px solid #f59573;
+  background-color: #ffcd82;
+}
 .navbar h1 {
   color: #130d03;
   padding: 20px;
-  background-color: #FFCD82;
-
-  
+  background-color: #ffcd82;
 }
 .navbar .links {
   margin-left: auto;
-  background-color: #FFCD82;
+  background-color: #ffcd82;
   font-size: calc(5px + 1vmin);
-
-
 }
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
-  background-color: #FFCD82;
-
+  background-color: #ffcd82;
 }
 .navbar a:hover {
-  color: #9FA05C;
+  color: #9fa05c;
 }
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
 }
-
