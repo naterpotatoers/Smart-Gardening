@@ -5,8 +5,7 @@
 .App-logo {
   height: 8vmin;
   pointer-events: none;
-  background-color: #FFCD82;
-
+  background-color: #ffcd82;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,7 +14,7 @@
   }
 }
 
-.App-Header{
+.App-Header {
   font-size: calc(10px + 2vmin);
 }
 .App-header {

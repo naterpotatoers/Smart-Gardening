@@ -1,10 +1,9 @@
 const Create = () => {
-    return ( 
-        <div className = "create">
-            <h2>Add new Plant Page</h2>
+  return (
+    <div className="create">
+      <h2>Add new Plant Page</h2>
+    </div>
+  );
+};
 
-        </div>
-     );
-}
- 
-export default Create; 
+export default Create;
