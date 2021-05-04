@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "RESTful backend for Smart Gardening",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
