@@ -1,7 +1,8 @@
 FROM        node:latest
-ENV         PORT=3000
-COPY        . /app
-WORKDIR     /app
+ENV         NODE_ENV=production
+ENV         PORT=5000
+COPY        . /src
+WORKDIR     /src
 RUN         npm install
-EXPOSE      3000
+EXPOSE      5000
 ENTRYPOINT  ["npm", "start"]

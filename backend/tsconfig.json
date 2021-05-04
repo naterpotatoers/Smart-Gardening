@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "rootDir": "./src",
+      "outDir": "./dist",
+      "target": "es5",
+      "strict": false,
+      "types": ["node", "jest"],
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "lib": ["ES2015"]
+      },
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules", "./src/**/__test__", "./src/**/__mocks__"]
+  }
