@@ -1,8 +1,10 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests.
-name: Smart-Farm CI
+name: Smart-Gardening CI
 
 on:
   pull_request:
+    paths:
+      - "frontend/**"
     branches: [main]
 
 jobs:
