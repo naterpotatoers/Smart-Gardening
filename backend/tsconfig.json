@@ -1,16 +1,22 @@
 {
-    "compilerOptions": {
-      "rootDir": "./src",
-      "baseUrl": "./src",
-      "outDir": "./dist",
+  "compilerOptions": {
       "target": "es5",
-      "strict": false,
-      "types": ["node", "jest"],
-      "skipLibCheck": true,
+      "module": "commonjs",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "rootDir": "./src",
+      /* Strict Type-Checking Options */
+      "strict": true,
+      "noImplicitAny": true,
+      /* Module Resolution Options */
+      "moduleResolution": "node",
+      "baseUrl": "./src",
       "esModuleInterop": true,
-      "resolveJsonModule": true,
-      "lib": ["ES2015"]
-      },
-    "include": ["./src/**/*"],
-    "exclude": ["node_modules", "./src/**/__test__", "./src/**/__mocks__"]
-  }
+      /* Advanced Options */
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+  },
+  "lib": ["es2015"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

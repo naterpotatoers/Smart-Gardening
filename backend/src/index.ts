@@ -1,17 +1,23 @@
-import express from 'express'
-import cors from 'cors'
+import express, { Application, Request, Response, NextFunction } from "express";
+import cors from "cors";
 
-import logger from './utils/logger'
-import router from './routes/routes'
+import logger from "middleware/logger";
 
-const app = express();
+// Boot express
+const app: Application = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use('/', router);
+const port = 5000;
 
-app.listen(5000, () => {
-  logger.info('Server started on http://localhost:5000');
-})
+// Application routing
+app.use("/", (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).send({ data: "Hello from Ornio AS" });
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`Server is listening on http://localhost:${port}`);
+});
