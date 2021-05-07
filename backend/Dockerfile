@@ -6,4 +6,4 @@ RUN         npm install
 EXPOSE      5000
 COPY . .
 RUN         npm run build
-ENTRYPOINT  ["node", "dist/index.js"]
+ENTRYPOINT  ["node", "dist/main"]
