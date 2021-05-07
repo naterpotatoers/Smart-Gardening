@@ -1,5 +1,5 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests.
-name: Smart-Gardening CI
+name: Smart-Gardening fronted CI
 
 on:
   pull_request:
