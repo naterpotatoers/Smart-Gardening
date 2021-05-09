@@ -1,5 +1,5 @@
 # This workflow will do a clean install of node dependencies, build the source code, run tests, and deploy to AWS S3.
-name: Smart-Gardening frontend CI/CD
+name: Smart-Gardening Frontend CI/CD
 
 on:
   pull_request:
