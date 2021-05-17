@@ -7,25 +7,25 @@ public:
     {
         id_ = id;
         pin_ = pin;
-    }
+    };
 
     /// Grabs the soil moisture levels
     void sample()
     {
         moisturePercentage_ = convertToPercentage(analogRead(pin_));
-    }
+    };
 
     /// @return soil moisture percentage
     double getMoisturePercentage()
     {
         return moisturePercentage_;
-    }
+    };
 
     /// Nicely formatted logging statement
     void print()
     {
         Serial.println(id_ + " percentage: " + moisturePercentage_);
-    }
+    };
 
 private:
     /// Converts moisture reading to percentage (wet --> dry, 1750 --> 3580)

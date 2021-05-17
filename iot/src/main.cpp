@@ -1,17 +1,23 @@
 #include <Arduino.h>
+#include <Wire.h>
 
 #include "Sensor.hpp"
 #include "Actuator.hpp"
+#include "I2CSensor.hpp"
 #include "SoilMoistureSensor.hpp"
 #include "TemperatureHumiditySensor.hpp"
 #include "WaterSolenoidValve.hpp"
+#include "SunlightIntensitySensor.hpp"
 
 SoilMoistureSensor soilSensor("CSM sensor", 15);
 TemperatureHumiditySensor tempHumidSensor("DHT11 sensor", 13);
-WaterSolenoidValve waterValve("Water valve", 21);
+WaterSolenoidValve waterValve("Water valve", 2);
+SunlightIntensitySensor sunSensor("GY-30", 21, 22, 0x23);
 
 void setup()
 {
+  Wire.begin();
+  sunSensor.begin();
   Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -24,10 +30,13 @@ void loop()
   tempHumidSensor.sample();
   tempHumidSensor.print();
 
-  digitalWrite(LED_BUILTIN, HIGH); // turn the LED on (HIGH is the voltage level)
+  sunSensor.sample();
+  sunSensor.print();
+
+  digitalWrite(LED_BUILTIN, HIGH);
   waterValve.toggleOn();
-  delay(4000);                    // wait for a second
-  digitalWrite(LED_BUILTIN, LOW); // turn the LED off by making the voltage LOW
+  delay(4000);
+  digitalWrite(LED_BUILTIN, LOW);
   waterValve.toggleOff();
   delay(4000);
 }

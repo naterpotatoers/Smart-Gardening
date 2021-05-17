@@ -13,13 +13,13 @@ public:
     {
         isActuating_ = true;
         digitalWrite(pin_, HIGH);
-    }
+    };
 
     void toggleOff()
     {
         isActuating_ = false;
         digitalWrite(pin_, LOW);
-    }
+    };
 
     void toggle()
     {
@@ -31,5 +31,5 @@ public:
         {
             toggleOn();
         }
-    }
+    };
 };

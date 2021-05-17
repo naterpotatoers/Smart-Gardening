@@ -16,24 +16,24 @@ public:
     {
         humidity_ = dht.getHumidity();
         temperature_ = dht.toFahrenheit(dht.getTemperature());
-    }
+    };
 
     double getHumidity()
     {
         return humidity_;
-    }
+    };
 
     double getTemperature()
     {
         return temperature_;
-    }
+    };
 
     /// Nicely formatted logging statement
     void print()
     {
         Serial.println(id_ + " temperature: " + temperature_);
         Serial.println(id_ + " humidity: " + humidity_);
-    }
+    };
 
 private:
     DHT dht;

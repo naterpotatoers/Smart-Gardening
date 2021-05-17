@@ -9,6 +9,6 @@ public:
     virtual int getPin() { return pin_; };
 
 protected:
-    int pin_;
     String id_;
+    int pin_;
 };
