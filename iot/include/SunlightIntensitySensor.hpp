@@ -14,7 +14,7 @@ public:
 
     void sample()
     {
-        intensity_ = gy30.readLightLevel();
+        intensity_ = gy30_.readLightLevel();
     };
 
     void print()
@@ -24,10 +24,10 @@ public:
 
     void begin()
     {
-        gy30.begin();
+        gy30_.begin();
     }
 
 private:
-    BH1750 gy30;
+    BH1750 gy30_;
     double intensity_;
 };
