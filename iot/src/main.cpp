@@ -1,8 +1,14 @@
 #include <Arduino.h>
 
+#include "Sensor.hpp"
+#include "Actuator.hpp"
 #include "SoilMoistureSensor.hpp"
+#include "TemperatureHumiditySensor.hpp"
+#include "WaterSolenoidValve.hpp"
 
-SoilMoistureSensor soilMoistureSensor("Soil moisture sensor", 15);
+SoilMoistureSensor soilSensor("CSM sensor", 15);
+TemperatureHumiditySensor tempHumidSensor("DHT11 sensor", 13);
+WaterSolenoidValve waterValve("Water valve", 21);
 
 void setup()
 {
@@ -12,13 +18,16 @@ void setup()
 
 void loop()
 {
-  soilMoistureSensor.getSensorData();
-  soilMoistureSensor.printValue();
+  soilSensor.sample();
+  soilSensor.print();
 
-  
+  tempHumidSensor.sample();
+  tempHumidSensor.print();
 
   digitalWrite(LED_BUILTIN, HIGH); // turn the LED on (HIGH is the voltage level)
-  delay(4000);                     // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);  // turn the LED off by making the voltage LOW
+  waterValve.toggleOn();
+  delay(4000);                    // wait for a second
+  digitalWrite(LED_BUILTIN, LOW); // turn the LED off by making the voltage LOW
+  waterValve.toggleOff();
   delay(4000);
 }

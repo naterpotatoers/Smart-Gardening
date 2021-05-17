@@ -1,37 +1,43 @@
 #pragma once
-#include "Analog.hpp"
 
-class SoilMoistureSensor : public Analog
+class SoilMoistureSensor : public Sensor
 {
 public:
     SoilMoistureSensor(String id, int pin)
     {
         id_ = id;
         pin_ = pin;
-        value_ = 0;
     }
 
-    /// Grabs the soil moisture levels (wet --> dry, 1750 --> 3580)
-    double getSensorData()
+    /// Grabs the soil moisture levels
+    void sample()
     {
-        value_ = analogRead(pin_);
-        value_ = convertData(value_);
-        return value_;
+        moisturePercentage_ = convertToPercentage(analogRead(pin_));
+    }
+
+    /// @return soil moisture percentage
+    double getMoisturePercentage()
+    {
+        return moisturePercentage_;
+    }
+
+    /// Nicely formatted logging statement
+    void print()
+    {
+        Serial.println(id_ + " percentage: " + moisturePercentage_);
     }
 
 private:
-    double convertData(double value)
+    /// Converts moisture reading to percentage (wet --> dry, 1750 --> 3580)
+    /// @return converted soil moisture percentage
+    double convertToPercentage(double rawValue)
     {
-        if (value)
-        {
-            double fromLow = 1750;
-            double fromHigh = 3580;
-            double toLow = 0;
-            double toHigh = 100;
-            double convertedValue = map(value, fromLow, fromHigh, toHigh, toLow);
-            return convertedValue;
-        }
-        else
-            throw "Invalid converData() parameter";
+        return map(rawValue, fromLow_, fromHigh_, toHigh_, toLow_);
     };
+
+    double moisturePercentage_;
+    double fromLow_ = 1750;
+    double fromHigh_ = 3580;
+    double toLow_ = 0;
+    double toHigh_ = 100;
 };
