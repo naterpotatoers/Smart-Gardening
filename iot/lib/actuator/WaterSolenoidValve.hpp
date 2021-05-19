@@ -1,3 +1,5 @@
+#pragma once
+
 class WaterSolenoidValve : Actuator
 {
 public:

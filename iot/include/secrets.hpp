@@ -7,7 +7,7 @@ const char kWifiSSID[] = "wifiName";
 const char kWifiPassword[] = "wifiPassword";
 const char kAwsIotCoreEndpoint[] = "something.iot.us-west-2.amazonaws.com";
 
-// Amazon Root CA 1
+// Amazon Root CA
 static const char AWS_CERT_CA[] PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
 MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF
