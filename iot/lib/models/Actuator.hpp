@@ -4,12 +4,10 @@ public:
     virtual void toggle() = 0;
     virtual void toggleOn() = 0;
     virtual void toggleOff() = 0;
-    /// @return true if device is actuating, false if off
-    virtual bool isActuating() { return isActuating_; };
-    /// @return sensor id / name
-    virtual String getId() { return id_; };
-    /// @return sensor pin number
-    virtual int getPin() { return pin_; };
+    /// @return true if device is on/open, false if off/closed
+    bool getIsActuating() { return isActuating_; };
+    String getId() { return id_; };
+    int getPin() { return pin_; };
 
 protected:
     int pin_;

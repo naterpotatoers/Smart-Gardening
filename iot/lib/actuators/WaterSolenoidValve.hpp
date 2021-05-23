@@ -1,3 +1,5 @@
+#include "Actuator.hpp"
+
 class WaterSolenoidValve : Actuator
 {
 public:

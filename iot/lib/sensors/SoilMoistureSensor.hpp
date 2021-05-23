@@ -1,4 +1,5 @@
 #pragma once
+#include "Sensor.h"
 
 class SoilMoistureSensor : public Sensor
 {
@@ -32,7 +33,14 @@ private:
     /// @return converted soil moisture percentage
     double convertToPercentage(double rawValue)
     {
-        return map(rawValue, fromLow_, fromHigh_, toHigh_, toLow_);
+        if (rawValue)
+        {
+            return map(rawValue, fromLow_, fromHigh_, toHigh_, toLow_);
+        }
+        else
+        {
+            return -1;
+        }
     };
 
     double moisturePercentage_;
