@@ -1,4 +1,4 @@
-class I2CSensor
+class I2C
 {
 public:
     virtual void sample() = 0;

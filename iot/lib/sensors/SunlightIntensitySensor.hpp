@@ -1,7 +1,7 @@
 #pragma once
 #include "BH1750.h"
 
-class SunlightIntensitySensor : public I2CSensor
+class SunlightIntensitySensor : public I2C
 {
 public:
     SunlightIntensitySensor(String id, int sdaPin, int sclPin, byte address)

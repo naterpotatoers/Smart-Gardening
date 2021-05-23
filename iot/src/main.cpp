@@ -1,9 +1,11 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#include "secrets.h"
+
 #include "Sensor.hpp"
 #include "Actuator.hpp"
-#include "I2CSensor.hpp"
+#include "I2C.hpp"
 #include "SoilMoistureSensor.hpp"
 #include "TemperatureHumiditySensor.hpp"
 #include "WaterSolenoidValve.hpp"
