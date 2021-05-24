@@ -1,7 +1,7 @@
 #pragma once
-#include "I2C.hpp"
+#include "I2CSensor.hpp"
 
-class OLEDScreen : public I2C
+class OLEDScreen : public I2CSensor
 {
 public:
     OLEDScreen(){};

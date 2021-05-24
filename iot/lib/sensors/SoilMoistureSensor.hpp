@@ -1,7 +1,6 @@
 #pragma once
-#include "Sensor.h"
 
-class SoilMoistureSensor : public Sensor
+class SoilMoistureSensor : public GardenSensor
 {
 public:
     SoilMoistureSensor(String id, int pin)

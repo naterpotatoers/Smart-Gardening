@@ -1,8 +1,8 @@
 #pragma once
 #include "BH1750.h"
-#include "I2C.hpp"
+#include "I2CSensor.hpp"
 
-class SunlightIntensitySensor : public I2C
+class SunlightIntensitySensor : public I2CSensor
 {
 public:
     SunlightIntensitySensor(String id, int sdaPin, int sclPin, byte address)
@@ -13,19 +13,28 @@ public:
         address_ = address;
     };
 
+    /// Connects sensor to i2c bus
+    void begin()
+    {
+        gy30_.begin();
+    }
+
+    /// Grabs the sunlight intensity level
     void sample()
     {
         intensity_ = gy30_.readLightLevel();
     };
 
+    /// Nicely formatted logging statement
     void print()
     {
         Serial.println(id_ + " light intensity: " + intensity_);
     };
 
-    void begin()
+    /// @return sunlight intensity valve
+    double getIntensity()
     {
-        gy30_.begin();
+        return intensity_;
     }
 
 private:
