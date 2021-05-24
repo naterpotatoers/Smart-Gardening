@@ -12,7 +12,7 @@ public:
     /// Grabs the soil moisture levels
     void sample()
     {
-        moisturePercentage_ = convertToPercentage(analogRead(pin_));
+        moisturePercentage_ = analogRead(pin_);
     };
 
     /// @return soil moisture percentage
@@ -32,14 +32,7 @@ private:
     /// @return converted soil moisture percentage
     double convertToPercentage(double rawValue)
     {
-        if (rawValue)
-        {
-            return map(rawValue, fromLow_, fromHigh_, toHigh_, toLow_);
-        }
-        else
-        {
-            return -1;
-        }
+        return map(rawValue, fromLow_, fromHigh_, toHigh_, toLow_);
     };
 
     double moisturePercentage_;

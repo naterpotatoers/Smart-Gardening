@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ArduinoJson.h>
+
 class SmartGardening
 {
 public:
@@ -33,10 +35,20 @@ public:
         waterValve_.toggle();
     }
 
-    /// @return a string in JSON format
-    String getSampleData()
+    /// @return all the sensor data in a JSON formatted string
+    String sensorData()
     {
-        return "";
+        StaticJsonDocument<200> doc;
+        doc["time"] = millis();
+        doc["soil moisture"] = soilSensor_.getMoisturePercentage();
+        doc["temperature"] = tempHumidSensor_.getTemperature();
+        doc["humidity"] = tempHumidSensor_.getHumidity();
+        doc["sun intensity"] = sunSensor_.getIntensity();
+
+        char jsonBuffer[512];
+        serializeJson(doc, jsonBuffer); // print to client
+        Serial.println(jsonBuffer);
+        return jsonBuffer;
     }
 
 private:

@@ -51,7 +51,7 @@ void loop()
 {
   digitalWrite(LED_BUILTIN, HIGH);
   smartGarden.sample();
-  awsIoT.publishMessage("Hello from ESP32!");
+  awsIoT.publishMessage(smartGarden.sensorData());
   awsIoT.isConnected();
   delay(5000);
   digitalWrite(LED_BUILTIN, LOW);

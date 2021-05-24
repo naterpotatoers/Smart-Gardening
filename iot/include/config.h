@@ -4,7 +4,7 @@
 // Pinouts
 const int SDA_PIN = 21;
 const int SCL_PIN = 22;
-const int SOIL_MOISTURE_PIN = 27;
+const int SOIL_MOISTURE_PIN = 33;
 const int TEMP_HUMIDITY_PIN = 13;
 const int WATER_VALVE_PIN = 32;
 //Addresses
