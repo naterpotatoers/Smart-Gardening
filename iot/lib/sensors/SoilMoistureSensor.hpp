@@ -1,6 +1,6 @@
 #pragma once
 
-class SoilMoistureSensor : public Sensor
+class SoilMoistureSensor : public GardenSensor
 {
 public:
     SoilMoistureSensor(String id, int pin)
@@ -12,7 +12,7 @@ public:
     /// Grabs the soil moisture levels
     void sample()
     {
-        moisturePercentage_ = convertToPercentage(analogRead(pin_));
+        moisturePercentage_ = analogRead(pin_);
     };
 
     /// @return soil moisture percentage

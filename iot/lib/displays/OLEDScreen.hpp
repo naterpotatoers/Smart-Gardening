@@ -1,9 +1,10 @@
 #pragma once
+#include "I2CSensor.hpp"
 
 class OLEDScreen : public I2CSensor
 {
 public:
-    OLEDScreen(String id, int sdaPin, int sclPin, byte address){};
+    OLEDScreen(){};
 
     void sample() {}
 

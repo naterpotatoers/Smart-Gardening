@@ -1,7 +1,7 @@
 #pragma once
 #include "DHT.h"
-
-class TemperatureHumiditySensor : public Sensor
+#include "Sensor.h"
+class TemperatureHumiditySensor : public GardenSensor
 {
 public:
     TemperatureHumiditySensor(String id, int pin)
@@ -18,11 +18,13 @@ public:
         temperature_ = dht.toFahrenheit(dht.getTemperature());
     };
 
+    /// @return humidity value
     double getHumidity()
     {
         return humidity_;
     };
 
+    /// @return temperature value
     double getTemperature()
     {
         return temperature_;
