@@ -1,4 +1,4 @@
-# Smart Gardening IOT / Firmware
+# Smart Gardening IoT / Firmware
 
 ## Environment
 

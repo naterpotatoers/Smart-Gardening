@@ -1,11 +1,11 @@
-#include "secrets.h"
+#pragma once
 
 class SmartGardening
 {
 public:
     SmartGardening(SoilMoistureSensor &soilSensor, TemperatureHumiditySensor &tempHumidSensor, WaterSolenoidValve &waterValve, SunlightIntensitySensor &sunSensor) : soilSensor_(soilSensor), tempHumidSensor_(tempHumidSensor), waterValve_(waterValve), sunSensor_(sunSensor){};
 
-    void begin()
+    void setup()
     {
         sunSensor_.begin();
     }
@@ -19,6 +19,7 @@ public:
         sunSensor_.sample();
     }
 
+    /// Nicely formatted logging statement
     void print()
     {
         soilSensor_.print();
@@ -26,6 +27,7 @@ public:
         sunSensor_.print();
     }
 
+    /// Toggle water solenoid on/off
     void water()
     {
         waterValve_.toggle();
