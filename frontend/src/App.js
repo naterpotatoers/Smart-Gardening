@@ -6,6 +6,8 @@ import Home from "./Home";
 import Create from "./Create";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import { Account } from "./components/Accounts";
+import Status from "./components/Status";
 
 function App() {
   return (
@@ -13,20 +15,23 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
-          </Switch>
+          <Account>
+            <Status />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/create">
+                <Create />
+              </Route>
+            </Switch>
+          </Account>
         </div>
       </div>
     </Router>
