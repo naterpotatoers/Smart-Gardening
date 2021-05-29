@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./index.css";
-import Navbar from "./Navbar";
-import Home from "./Home";
-import Create from "./Create";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import { Account } from "./components/Accounts";
-import Status from "./components/Status";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Navbar from "./components/Navbar";
+import { Account } from "./utils/Accounts";
+import Status from "./utils/Status";
+
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/signup">
-                <Signup />
+              <Route path="/register">
+                <Register />
               </Route>
               <Route path="/login">
                 <Login />
