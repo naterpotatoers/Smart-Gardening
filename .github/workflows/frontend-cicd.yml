@@ -20,6 +20,10 @@ jobs:
       run:
         working-directory: ./frontend
 
+    env:
+      REACT_APP_COGNITO_USER_POOL_ID: ${{ secrets.REACT_APP_COGNITO_USER_POOL_ID }}
+      REACT_APP_COGNITO_CLIENT_ID: ${{ secrets.REACT_APP_COGNITO_CLIENT_ID }}
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
