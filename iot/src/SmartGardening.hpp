@@ -39,11 +39,12 @@ public:
     String sensorData()
     {
         StaticJsonDocument<200> doc;
-        doc["time"] = millis();
-        doc["soil moisture"] = soilSensor_.getMoisturePercentage();
-        doc["temperature"] = tempHumidSensor_.getTemperature();
-        doc["humidity"] = tempHumidSensor_.getHumidity();
-        doc["sun intensity"] = sunSensor_.getIntensity();
+        doc["message"]["nodeId"] = NODE_ID;
+        doc["message"]["sampleTime"] = millis();
+        doc["message"]["soilMoisture"] = soilSensor_.getMoisturePercentage();
+        doc["message"]["temperature"] = tempHumidSensor_.getTemperature();
+        doc["message"]["humidity"] = tempHumidSensor_.getHumidity();
+        doc["message"]["sunIntensity"] = sunSensor_.getIntensity();
 
         char jsonBuffer[512];
         serializeJson(doc, jsonBuffer); // print to client

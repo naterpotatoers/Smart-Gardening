@@ -10,7 +10,7 @@
 #include "Actuator.hpp"
 #include "I2CSensor.hpp"
 
-#include "AwsIoTCore.hpp"
+#include "AWSIoTCore.hpp"
 #include "SoilMoistureSensor.hpp"
 #include "TemperatureHumiditySensor.hpp"
 #include "WaterSolenoidValve.hpp"
