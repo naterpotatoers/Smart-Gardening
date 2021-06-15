@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "./Accounts";
 
@@ -17,14 +18,14 @@ const Status = () => {
     });
   }, []);
   return (
-    <div>
+     <div className="links">
       {status ? (
         <div>
           User logged in
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
-        "Please login"
+        <Link to="/login"> Login </Link>
       )}
     </div>
   );
