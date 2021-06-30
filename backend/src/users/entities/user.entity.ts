@@ -1,28 +1,30 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   OneToMany,
   CreateDateColumn,
 } from 'typeorm';
 
 import { Garden } from '../../gardens/entities/garden.entity';
-import { Node } from '../../nodes/entities/node.entity';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn()
+  id: string;
 
   @Column()
   email: string;
 
+  @Column()
+  location: string;
+
   @CreateDateColumn()
   joinDate: Date;
 
+  @CreateDateColumn()
+  profilePic: string;
+
   @OneToMany((type) => Garden, (garden) => garden.user)
   gardens: Garden[];
-
-  @OneToMany((type) => Node, (node) => node.user)
-  nodes: Node[];
 }

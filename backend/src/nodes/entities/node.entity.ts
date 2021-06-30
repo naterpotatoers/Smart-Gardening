@@ -1,17 +1,20 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   ManyToOne,
   CreateDateColumn,
 } from 'typeorm';
 
-import { User } from '../../users/entities/user.entity';
+import { Garden } from 'src/gardens/entities/garden.entity';
 
 @Entity()
 export class Node {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn()
+  id: string;
+
+  @CreateDateColumn()
+  startDate: Date;
 
   @Column()
   description: string;
@@ -19,9 +22,6 @@ export class Node {
   @Column()
   sensors: string;
 
-  @CreateDateColumn()
-  startDate: Date;
-
-  @ManyToOne((type) => User, (user) => user.nodes)
-  user: User;
+  @ManyToOne((type) => Garden, (garden) => garden.nodes)
+  garden: Garden;
 }
