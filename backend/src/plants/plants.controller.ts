@@ -29,16 +29,16 @@ export class PlantsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.plantsService.findOne(+id);
+    return this.plantsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePlantDto: UpdatePlantDto) {
-    return this.plantsService.update(+id, updatePlantDto);
+    return this.plantsService.update(id, updatePlantDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.plantsService.remove(+id);
+    return this.plantsService.remove(id);
   }
 }

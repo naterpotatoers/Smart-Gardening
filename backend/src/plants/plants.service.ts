@@ -12,15 +12,15 @@ export class PlantsService {
     return `This action returns all plants`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} plant`;
   }
 
-  update(id: number, updatePlantDto: UpdatePlantDto) {
+  update(id: string, updatePlantDto: UpdatePlantDto) {
     return `This action updates a #${id} plant`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} plant`;
   }
 }

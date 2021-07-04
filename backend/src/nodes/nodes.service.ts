@@ -12,15 +12,15 @@ export class NodesService {
     return `This action returns all nodes`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} node`;
   }
 
-  update(id: number, updateNodeDto: UpdateNodeDto) {
+  update(id: string, updateNodeDto: UpdateNodeDto) {
     return `This action updates a #${id} node`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} node`;
   }
 }

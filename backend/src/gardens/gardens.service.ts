@@ -12,15 +12,15 @@ export class GardensService {
     return `This action returns all gardens`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} garden`;
   }
 
-  update(id: number, updateGardenDto: UpdateGardenDto) {
+  update(id: string, updateGardenDto: UpdateGardenDto) {
     return `This action updates a #${id} garden`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} garden`;
   }
 }

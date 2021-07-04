@@ -18,14 +18,14 @@ import { Garden } from '../../gardens/entities/garden.entity';
 @Entity()
 export class User {
   @PrimaryColumn()
-  @IsEmail()
+  @Length(3, 30)
   @IsNotEmpty()
   id: string;
 
   @Column()
-  @Length(3, 30)
+  @IsEmail()
   @IsNotEmpty()
-  username: string;
+  email: string;
 
   @Column()
   @Length(1, 50)
@@ -37,7 +37,7 @@ export class User {
   @IsNotEmpty()
   joinDate: Date;
 
-  @CreateDateColumn()
+  @Column()
   @IsOptional()
   profilePic: string;
 
