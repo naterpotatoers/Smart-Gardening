@@ -1,3 +1,4 @@
+import { IsDate, IsNotEmpty, Length } from 'class-validator';
 import {
   Entity,
   Column,
@@ -14,12 +15,18 @@ import { Plant } from 'src/plants/entities/plant.entity';
 @Entity()
 export class Garden {
   @PrimaryColumn()
+  @Length(3, 30)
+  @IsNotEmpty()
   id: string;
 
   @Column()
+  @Length(1, 50)
+  @IsNotEmpty()
   location: string;
 
   @CreateDateColumn()
+  @IsDate()
+  @IsNotEmpty()
   startDate: Date;
 
   @ManyToOne(() => User, (user) => user.gardens)
