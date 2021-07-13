@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { NodesModule } from './nodes/nodes.module';
 import { GardensModule } from './gardens/gardens.module';
 import { DataModule } from './data/data.module';
+import { PlantsModule } from './plants/plants.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,7 +17,13 @@ async function bootstrap() {
     .build();
   // Add new modules to the include list to have them included in Swagger
   const document = SwaggerModule.createDocument(app, config, {
-    include: [UsersModule, NodesModule, GardensModule, DataModule],
+    include: [
+      UsersModule,
+      NodesModule,
+      GardensModule,
+      DataModule,
+      PlantsModule,
+    ],
   });
 
   SwaggerModule.setup('/', app, document, {

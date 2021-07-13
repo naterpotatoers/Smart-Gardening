@@ -29,16 +29,16 @@ export class NodesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.nodesService.findOne(+id);
+    return this.nodesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateNodeDto: UpdateNodeDto) {
-    return this.nodesService.update(+id, updateNodeDto);
+    return this.nodesService.update(id, updateNodeDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.nodesService.remove(+id);
+    return this.nodesService.remove(id);
   }
 }
