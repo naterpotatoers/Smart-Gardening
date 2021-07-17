@@ -10,7 +10,7 @@ import {
 
 import { User } from '../../users/entities/user.entity';
 import { Node } from '../../nodes/entities/node.entity';
-import { Plant } from 'src/plants/entities/plant.entity';
+import { Plant } from '../../plants/entities/plant.entity';
 
 @Entity()
 export class Garden {

@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm';
 import { IsDate, IsNotEmpty, IsOptional, Length } from 'class-validator';
 
-import { Garden } from 'src/gardens/entities/garden.entity';
+import { Garden } from '../../gardens/entities/garden.entity';
 
 @Entity()
 export class Plant {

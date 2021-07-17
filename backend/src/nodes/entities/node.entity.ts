@@ -13,7 +13,7 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 
-import { Garden } from 'src/gardens/entities/garden.entity';
+import { Garden } from '../../gardens/entities/garden.entity';
 
 @Entity()
 export class Node {
