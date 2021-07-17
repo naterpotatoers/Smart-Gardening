@@ -1,1 +1,3 @@
-export class CreateDatumDto {}
+export class CreateDatumDto {
+  timeStamp: string;
+}
