@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateDatumDto } from './dto/create-datum.dto';
 import { UpdateDatumDto } from './dto/update-datum.dto';
+import { Datum } from './entities/datum.entity';
 
 @Injectable()
 export class DataService {
-  create(createDatumDto: CreateDatumDto) {
-    return 'This action adds a new datum';
+  constructor(
+    @InjectRepository(Datum)
+    private datumRepository: Repository<Datum>,
+  ) {}
+
+  create(dto: CreateDatumDto) {
+    const data = new Datum();
+    data.timeStamp = dto.timeStamp;
+    return this.datumRepository.save(data);
   }
 
   findAll() {
-    return `This action returns all data`;
+    return this.datumRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} datum`;
+  findOne(id: string) {
+    return this.datumRepository.findOne(id);
   }
 
-  update(id: number, updateDatumDto: UpdateDatumDto) {
-    return `This action updates a #${id} datum`;
+  async update(id: string, dto: UpdateDatumDto) {
+    const data = await this.findOne(id);
+    data.timeStamp = dto.timeStamp;
+    return await this.datumRepository.update(id, data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} datum`;
+  async remove(id: string) {
+    return await this.datumRepository.delete(id);
   }
 }

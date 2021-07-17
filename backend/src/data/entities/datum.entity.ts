@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 import { Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()

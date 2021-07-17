@@ -1,26 +1,42 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreatePlantDto } from './dto/create-plant.dto';
 import { UpdatePlantDto } from './dto/update-plant.dto';
+import { Plant } from './entities/plant.entity';
 
 @Injectable()
 export class PlantsService {
-  create(createPlantDto: CreatePlantDto) {
-    return 'This action adds a new plant';
+  constructor(
+    @InjectRepository(Plant)
+    private plantRepository: Repository<Plant>,
+  ) {}
+
+  create(dto: CreatePlantDto) {
+    const plant = new Plant();
+    plant.id = dto.id;
+    plant.startDate = dto.startDate;
+    plant.harvestDate = dto.harvestDate;
+    return this.plantRepository.save(plant);
   }
 
   findAll() {
-    return `This action returns all plants`;
+    return this.plantRepository.find();
   }
 
   findOne(id: string) {
-    return `This action returns a #${id} plant`;
+    return this.plantRepository.findOne(id);
   }
 
-  update(id: string, updatePlantDto: UpdatePlantDto) {
-    return `This action updates a #${id} plant`;
+  async update(id: string, dto: UpdatePlantDto) {
+    const plant = await this.findOne(id);
+    plant.id = dto.id;
+    plant.startDate = dto.startDate;
+    plant.harvestDate = new Date(dto.harvestDate);
+    return await this.plantRepository.update(id, plant);
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} plant`;
+  async remove(id: string) {
+    return await this.plantRepository.delete(id);
   }
 }
