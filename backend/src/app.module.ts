@@ -13,6 +13,7 @@ import { Node } from './nodes/entities/node.entity';
 import { User } from './users/entities/user.entity';
 import { PlantsModule } from './plants/plants.module';
 import { Plant } from './plants/entities/plant.entity';
+import { Datum } from './data/entities/datum.entity';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { Plant } from './plants/entities/plant.entity';
       username: 'root',
       password: 'Leanahtan#523509',
       database: 'world',
-      entities: [User, Garden, Node, Plant],
+      entities: [User, Garden, Node, Plant, Datum],
       synchronize: true,
     }),
     PlantsModule,
