@@ -1,39 +1,33 @@
-import React, { useState, useContext } from "react";
-import { AccountContext } from "../utils/Accounts";
-// Basic Login form, could be replaced with react-hook-form for training purposes
+import { Button, TextField } from "@material-ui/core";
+import { useForm } from "react-hook-form";
+
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const { register, handleSubmit } = useForm();
 
-  const { authenticate } = useContext(AccountContext);
+    const onSubmit = (data) => {
+        console.log(data);
+    };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-
-    authenticate(email, password)
-      .then((data) => {
-        console.log("User logged in successfully!", data);
-      })
-      .catch((err) => {
-        console.error("User failed to login!", err);
-      });
-  };
-
-  return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+    return (
+        <form className="App" onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+              label = "Email"             
+              type="text"
+              placeholder="Email"
+              name="email"
+              {...register("email")} 
+            />
+            <br/><br/>
+            <TextField
+              label = "Password" 
+              type="text"
+              placeholder="Password"
+              name="password"
+              {...register("password")} 
+            />
+            <br/><br/>
+            <Button variant = "contained" color = "primary">Submit</Button>
+        </form>
+    );
 };
-
 export default LoginForm;

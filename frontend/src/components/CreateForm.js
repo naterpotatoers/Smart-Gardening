@@ -1,6 +1,7 @@
+import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 
-const App = () => {
+const CreateForm = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
@@ -9,38 +10,39 @@ const App = () => {
 
     return (
         <form className="App" onSubmit={handleSubmit(onSubmit)}>
-            <input
+            <TextField
+              label ="Plant name"
               type="text"
               placeholder="Plant name"
               name="plantname"
               {...register("plantname")} 
-             // ref = {register({ required: true})}
             /><br/><br/>
-            <input
+            <TextField
+              label="Garden name"
               type="text"
               placeholder="Garden name"
               name="gardenname"
               {...register("gardenname")} 
-             // ref = {register({ required: true})}
-            /><br/><br/>
-            <input
+            />
+            <br/><br/>
+            <TextField
+              label="Plant date"
               type="text"
               placeholder="Plant date"
               name="plantdate"
               {...register("plantdate")} 
-              //ref = {register({ required: true})}
-            /><br/><br/>
-            <input
+            />
+            <br/><br/>
+            <TextField
+              label = "Harvest date"
               type="text"
               placeholder="Harvest date"
               name="harvestdate"
               {...register("harvestdate")} 
-              //ref = {register({ required: true})}
-            /><br/><br/>
-            <input type="submit"/>
-            
+            />
+            <br/><br/>
+            <Button variant="contained" color = "primary">Submit</Button>
         </form>
     );
 };
-
-export default App;
+export default CreateForm;

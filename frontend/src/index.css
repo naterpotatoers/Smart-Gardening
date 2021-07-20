@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap");
 
 /* base styles */
-* {
+/* * {
   margin: 0;
   font-family: "Martel";
   color: #000000;
   background-color: #6c8865;
-}
+} */
 
 .navbar {
   padding: 20px;
