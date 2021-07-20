@@ -25,7 +25,7 @@ const Status = () => {
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
-        <Link to="/login"> Login </Link>
+        <Link to="/login"></Link>
       )}
     </div>
   );

@@ -1,43 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@300&display=swap");
 
 /* base styles */
-* {
+*{
   margin: 0;
   font-family: "Martel";
   color: #000000;
-  background-color: #6c8865;
-}
-
-.navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: auto;
-  margin: 0 auto;
-  border-bottom: 1px solid #f59573;
-  background-color: #ffcd82;
-}
-.navbar h1 {
-  color: #130d03;
-  padding: 20px;
-  background-color: #ffcd82;
-}
-.navbar .links {
-  margin-left: auto;
-  background-color: #ffcd82;
-  font-size: calc(5px + 1vmin);
-}
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-  background-color: #ffcd82;
-}
-.navbar a:hover {
-  color: #9fa05c;
-}
-.content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  /*background-color: #8dd17c;*/
 }
