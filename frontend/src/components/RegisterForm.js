@@ -1,34 +1,35 @@
-import React, { useState } from "react";
-import UserPool from "../utils/UserPool";
-// Basic Register form, could be replaced with react-hook-form for training purposes
-const RegisterForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import React from "react";
+import { useForm } from "react-hook-form";
+import { TextField, Button } from "@material-ui/core";
 
-  const onSubmit = (event) => {
-    event.preventDefault();
 
-    UserPool.signUp(email, password, [], null, (err, data) => {
-      if (err) console.error(err);
-      console.log(data);
-    });
-  };
+export default function RegisterForm() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data); 
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
-};
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <TextField label="Email"placeholder="Email" {...register("emailInput")} />
+      {errors.obj1 && <span>This field is required</span>}
+      <br></br>          <br></br>    
+      {/* include validation with required or other standard HTML validation rules */}
+      <TextField label="Username"placeholder="Username" {...register("usernameInput")} />
+      {/* errors will return when field validation fails  */}
+      {errors.obj2 && <span>This field is required</span>}
+      <br></br>      <br></br>    
 
-export default RegisterForm;
+      <TextField label="Password"type="password"placeholder="Password" {...register("passwordInput")} />
+      {/* errors will return when field validation fails  */}
+      {errors.obj3 && <span>This field is required</span>}
+      <br></br>      <br></br>    
+
+      <TextField label="Location"placeholder="Location" {...register("locationInput")} />
+      {/* errors will return when field validation fails  */}
+      {errors.obj4 && <span>This field is required</span>}
+      <br></br>      <br></br>
+      <Button onClick={() => { alert('successful registration') }} variant="contained" color = "primary">Submit</Button> 
+    </form> 
+  );
+}

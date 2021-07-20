@@ -1,7 +1,7 @@
 import { Button, TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 
-const LoginForm = () => {
+const GardenForm = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
@@ -11,23 +11,23 @@ const LoginForm = () => {
     return (
         <form className="App" onSubmit={handleSubmit(onSubmit)}>
             <TextField
-              label = "Email"             
+              label = "Garden name"
               type="text"
-              placeholder="Email"
-              name="email"
-              {...register("email")} 
+              placeholder="Garden name"
+              name="gardenname"
+              {...register("gardenname")} 
             />
             <br/><br/>
             <TextField
-              label = "Password" 
+              label="Location"
               type="text"
-              placeholder="Password"
-              name="password"
-              {...register("password")} 
+              placeholder="Location"
+              name="location"
+              {...register("location")} 
             />
             <br/><br/>
-            <Button variant = "contained" color = "primary">Submit</Button>
+            <Button variant="contained" color = "primary">Submit</Button>      
         </form>
     );
 };
-export default LoginForm;
+export default GardenForm;

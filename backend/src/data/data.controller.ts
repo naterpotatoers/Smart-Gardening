@@ -29,16 +29,16 @@ export class DataController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.dataService.findOne(+id);
+    return this.dataService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateDatumDto: UpdateDatumDto) {
-    return this.dataService.update(+id, updateDatumDto);
+    return this.dataService.update(id, updateDatumDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.dataService.remove(+id);
+    return this.dataService.remove(id);
   }
 }
