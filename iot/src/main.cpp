@@ -10,7 +10,7 @@
 #include "Actuator.hpp"
 #include "I2CSensor.hpp"
 
-#include "AwsIoTCore.hpp"
+#include "AWSIoTCore.hpp"
 #include "SoilMoistureSensor.hpp"
 #include "TemperatureHumiditySensor.hpp"
 #include "WaterSolenoidValve.hpp"
@@ -37,12 +37,29 @@ void wifiSetup()
   }
 }
 
+void validateConnection()
+{
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("Connecting to ");
+    Serial.println(WIFI_SSID);
+    delay(1000);
+    Serial.print(".");
+  }
+  if (!awsIoT.isConnected())
+  {
+    awsIoT.setup();
+  }
+}
+
 void setup()
 {
   Wire.begin();
   Serial.begin(9600);
   wifiSetup();
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
   smartGarden.setup();
   awsIoT.setup();
 }
@@ -51,11 +68,9 @@ void loop()
 {
   digitalWrite(LED_BUILTIN, HIGH);
   smartGarden.sample();
+  validateConnection();
   awsIoT.publishMessage(smartGarden.sensorData());
-  awsIoT.isConnected();
-  delay(5000);
-  digitalWrite(LED_BUILTIN, LOW);
   smartGarden.print();
-  smartGarden.water();
-  delay(5000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1200000);
 }
