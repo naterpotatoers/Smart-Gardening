@@ -1,8 +1,14 @@
-const Home = () => {
+import "./Home.css";
+          const Home = () => {
   return (
     <div className="home">
-      <h2>HomePage</h2>
+      <header>Welcome Home</header>
+      <h2>HomePage Garden</h2>
+      <body>
+      </body>
+
     </div>
+    
   );
 };
 

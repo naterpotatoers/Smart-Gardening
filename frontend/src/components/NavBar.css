@@ -1,0 +1,39 @@
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: auto;
+    margin: 0 auto;
+    /*background-color: #ffcd82;*/
+  }
+  .navbar h1 {
+    color: #ffffff;
+    padding: 20px;
+    /*background-color: #ffcd82;*/
+  }
+  .navbar .links {
+    margin-left: auto;
+   /* background-color: #ffcd82;*/
+    font-size: calc(5px + 1vmin);
+
+  }
+  .navbar a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    text-transform: lowercase;
+
+  }
+
+  .navbar a:hover {
+      color: white;
+  }
+  .content {
+    max-width: 3000px;
+    margin: 40px auto;
+    padding: 90px;
+  }
+
+
+  

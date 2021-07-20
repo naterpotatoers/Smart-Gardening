@@ -1,6 +1,7 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import "./index.css";
+//import "./index.css";
+import './App.css';
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Register from "./pages/Register";
@@ -14,8 +15,6 @@ import Analitics from "./pages/Analitics";
 import Navbar from "./components/Navbar";
 import { Account } from "./utils/Accounts";
 import Status from "./utils/Status";
-
-
 
 function App() {
   return (
