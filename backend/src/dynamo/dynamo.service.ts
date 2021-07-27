@@ -1,23 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
-import { User, UserKey } from './dynamo.interface';
+import { Dynamo, DynamoKey } from './dynamo.interface';
 
 @Injectable()
-export class UserService {
+export class DynamoService {
   constructor(
-    @InjectModel('User')
-    private userModel: Model<User, UserKey>,
+    @InjectModel('smart-gardening-v1')
+    private userModel: Model<Dynamo, DynamoKey>,
   ) {}
 
-  create(user: User) {
-    return this.userModel.create(user);
-  }
-
-  update(key: UserKey, user: Partial<User>) {
-    return this.userModel.update(key, user);
-  }
-
-  findOne(key: UserKey) {
+  findOne(key: DynamoKey) {
     return this.userModel.get(key);
   }
 

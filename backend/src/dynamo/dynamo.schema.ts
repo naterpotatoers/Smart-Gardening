@@ -1,14 +1,26 @@
 import { Schema } from 'dynamoose';
 
-export const UserSchema = new Schema({
-  id: {
-    type: String,
-    hashKey: true,
-  },
-  name: {
+const DataSchema = new Schema({
+  nodeId: {
     type: String,
   },
-  email: {
-    type: String,
+  soilMoisture: {
+    type: Number,
   },
+  // humidity: {
+  //   type: Number,
+  // },
+  // temperature: {
+  //   type: Number,
+  // },
+  sunIntensity: {
+    type: Number,
+  },
+});
+
+export const DynamoSchema = new Schema({
+  timestamp: {
+    type: Number,
+  },
+  data: DataSchema,
 });

@@ -8,12 +8,12 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { UserService } from './dynamo.service';
+import { DynamoService } from './dynamo.service';
 
 @ApiTags('dynamo')
 @Controller('dynamo')
 export class DynamoController {
-  constructor(private readonly dynamoService: UserService) {}
+  constructor(private readonly dynamoService: DynamoService) {}
 
   @Get()
   findAll() {

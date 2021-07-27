@@ -15,7 +15,7 @@ import { User } from './users/entities/user.entity';
 import { PlantsModule } from './plants/plants.module';
 import { Plant } from './plants/entities/plant.entity';
 import { Datum } from './data/entities/datum.entity';
-import { UserModule } from './dynamo/dynamo.module';
+import { DynamoModule } from './dynamo/dynamo.module';
 
 @Module({
   imports: [
@@ -25,7 +25,7 @@ import { UserModule } from './dynamo/dynamo.module';
     GardensModule,
     PlantsModule,
     DataModule,
-    UserModule,
+    DynamoModule,
     DynamooseModule.forRoot({
       aws: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,

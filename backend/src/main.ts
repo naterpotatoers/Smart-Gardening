@@ -6,6 +6,7 @@ import { NodesModule } from './nodes/nodes.module';
 import { GardensModule } from './gardens/gardens.module';
 import { DataModule } from './data/data.module';
 import { PlantsModule } from './plants/plants.module';
+import { DynamoModule } from './dynamo/dynamo.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -23,6 +24,7 @@ async function bootstrap() {
       GardensModule,
       DataModule,
       PlantsModule,
+      DynamoModule,
     ],
   });
 

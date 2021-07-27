@@ -1,8 +1,15 @@
-export interface UserKey {
-  id: string;
+export interface DynamoKey {
+  timestamp: string;
 }
 
-export interface User extends UserKey {
-  name: string;
-  email?: string;
+export interface Dynamo extends DynamoKey {
+  data: IoTData;
+}
+
+export interface IoTData {
+  nodeId: String;
+  soilMoisture: Number;
+  humidity: Number;
+  temperature: Number;
+  sunIntensity: Number;
 }
