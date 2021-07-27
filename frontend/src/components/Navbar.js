@@ -10,7 +10,6 @@ import { Button, createMuiTheme, TcreateTheme, withStyles, makeStyles, ThemeProv
 
 const Bstyle = {
   color: "white"
-  
 };
 
 function MouseOver(event) {
@@ -39,30 +38,7 @@ const Navbar = () => {
                 Home
               </Button>
             </Link>
-            <Link to="/create">
-              <Button
-              style ={Bstyle}
-              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
-              >
-                Plant
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button
-              style ={Bstyle}
-              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
-              >
-                Login
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button
-              style ={Bstyle}
-              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
-              >
-                Register
-              </Button>
-            </Link>
+
             <Link to="/profile">
               <Button
               style ={Bstyle}
@@ -71,6 +47,18 @@ const Navbar = () => {
                 Profile
               </Button>
             </Link>
+
+            <Link to="/create">
+              <Button
+              style ={Bstyle}
+              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
+              >
+                Plant
+              </Button>
+            </Link>
+
+           
+            
             <Link to="/how">
               <Button
               style ={Bstyle}
@@ -103,6 +91,25 @@ const Navbar = () => {
                 Analitics
               </Button>
             </Link>
+
+            <Link to="/login">
+              <Button
+              style ={Bstyle}
+              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
+              >
+                Login
+              </Button>
+            </Link>
+
+            <Link to="/register">
+              <Button
+              style ={Bstyle}
+              onMouseOver= {MouseOver} onMouseOut= {MouseOut}
+              >
+                Register
+              </Button>
+            </Link>
+
             <IconButton 
             style ={Bstyle}
             onMouseOver= {MouseOver} onMouseOut= {MouseOut}

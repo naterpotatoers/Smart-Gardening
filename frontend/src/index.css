@@ -3,7 +3,7 @@
 /* base styles */
 *{
   margin: 0;
-  font-family: "Martel";
-  color: #000000;
+  /* font-family: "Martel"; */
+  color: rgb(255, 255, 255);
   /*background-color: #8dd17c;*/
 }

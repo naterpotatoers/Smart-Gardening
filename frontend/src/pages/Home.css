@@ -1,6 +1,12 @@
 body {
-    color: black;
-    background-color: #8dd17c;
+    color: rgb(0, 0, 0);
+    background-color: #7899b8e3;
 
 }
 
+
+
+a {
+    font-size: 36px;
+    text-shadow: 2px 2px rgb(165, 160, 160);
+}
