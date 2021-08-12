@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
-import { Button, Input, TextField } from "@material-ui/core";
+import React, { useContext } from "react";
+import { Button, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 
 import { AccountContext } from "../utils/Accounts";
 // Basic Login form, could be replaced with react-hook-form for training purposes
 const LoginForm = () => {
   const { control, handleSubmit } = useForm();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const { authenticate } = useContext(AccountContext);
 

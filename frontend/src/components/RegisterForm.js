@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Input, TextField } from "@material-ui/core";
+import React from "react";
+import { Button, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import UserPool from "../utils/UserPool";
 // Basic Register form, could be replaced with react-hook-form for training purposes
