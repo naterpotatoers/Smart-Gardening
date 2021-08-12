@@ -1,5 +1,6 @@
 import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import "../components/Form.css";
 
 const CreateForm = () => {
     const { register, handleSubmit } = useForm();
@@ -9,7 +10,7 @@ const CreateForm = () => {
     };
 
     return (
-        <form className="App" onSubmit={handleSubmit(onSubmit)}>
+        <form className="Forms" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               label ="Plant name"
               type="text"

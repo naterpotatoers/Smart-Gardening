@@ -1,10 +1,17 @@
+import { Typography } from "@material-ui/core";
+
 import RegisterForm from "../components/RegisterForm";
 
 const Register = () => {
   return (
-    <div className="register">      <br></br>    
-      <h2>RegisterPage</h2>      <br></br>    
+    <div className="register">
+      <Typography align = "center">
+          
+      <h2>Register</h2>     
       <RegisterForm />
+      </Typography>
+      
+
     </div>
   );
 };

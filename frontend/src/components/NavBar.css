@@ -8,21 +8,23 @@
     /*background-color: #ffcd82;*/
   }
   .navbar h1 {
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     padding: 20px;
+    font-size: 30px;
+
     /*background-color: #ffcd82;*/
   }
+
   .navbar .links {
     margin-left: auto;
    /* background-color: #ffcd82;*/
-    font-size: calc(5px + 1vmin);
-
+    font-size: calc(12px + 2vmin);
+    font-weight: bolder;
   }
   .navbar a {
     margin-left: 16px;
     text-decoration: none;
     padding: 6px;
-    text-transform: lowercase;
 
   }
 
