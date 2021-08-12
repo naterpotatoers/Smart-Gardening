@@ -7,6 +7,7 @@ on:
       - "frontend/**"
     types: closed
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
