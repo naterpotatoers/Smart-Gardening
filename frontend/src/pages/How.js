@@ -26,15 +26,13 @@ const How = () => {
         </Typography>
 
         <Typography variant="h6" align="justify">
-          &nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Ut pellentesque laoreet lacus. Aenean semper non orci quis
-          vestibulum. Fusce a eleifend quam. Suspendisse potenti. Curabitur
-          magna ex, pulvinar et nisl feugiat, interdum ultrices turpis. Orci
-          varius natoque penatibus et magnis dis parturient montes, nascetur
-          ridiculus mus. Suspendisse laoreet pulvinar diam at sagittis. Proin
-          efficitur ipsum tempor orci ornare eleifend. Nam congue sed sem id
-          maximus. Aliquam ex orci, dignissim a magna vitae, tempus tempus elit.
-          Vestibulum mollis felis eget turpis maximus finibus.
+          &nbsp;&nbsp;&nbsp; How to get started raising a plant from level one. 
+          Plants need a lot of time, water and sun. Often life can get really hectic. 
+          Simple task fall thought the cracks, leaving many plants with out water. Resulting in death of your plant pet.
+          Solution is a simple DIY device. In these next few step we will provide the equipment required in order to help keep your plant pet alive.
+          This DIY device will help you keep you in the know on what your plant pet needs.
+          Read all the steps and follow the direction!
+
         </Typography>
 
         <Card className={classes.root}>
@@ -55,15 +53,10 @@ const How = () => {
             <Typography variant="h5">Step 1:</Typography>
 
             <Typography variant="h6" align="center">
-              &nbsp;&nbsp;&nbsp;Pellentesque habitant morbi tristique senectus
-              et netus et malesuada fames ac turpis egestas. Cras pharetra quam
-              nec porta fringilla. Praesent consequat nulla finibus, aliquam
-              orci at, scelerisque lacus. Nam a lacus pellentesque dui congue
-              accumsan. Quisque a feugiat lectus. Vestibulum vitae tortor a
-              libero ultrices commodo a eu nibh. Proin pulvinar neque eu neque
-              facilisis aliquam. Vivamus est tortor, venenatis id dapibus
-              dapibus, dapibus non turpis. Morbi quis orci vel lacus congue
-              elementum. Sed quis gravida neque, in molestie est.
+              &nbsp;&nbsp;&nbsp;Let's get started!
+              Gathering all the parts.
+              Parts List:
+
             </Typography>
           </CardContent>
         </Card>
@@ -73,7 +66,11 @@ const How = () => {
         <Card>
           <CardContent>
             <Typography variant="h5" m>
-              Step 2:
+              Step 2: 
+            </Typography>
+            <Typography variant="h6" align="center">
+              &nbsp;&nbsp;&nbsp;
+
             </Typography>
           </CardContent>
         </Card>
@@ -85,6 +82,10 @@ const How = () => {
             <Typography variant="h5" m>
               Step 3:
             </Typography>
+            <Typography variant="h6" align="center">
+              &nbsp;&nbsp;&nbsp;
+
+            </Typography>
           </CardContent>
         </Card>
       </Box>
@@ -95,6 +96,10 @@ const How = () => {
             <Typography variant="h5" m>
               Step 4:
             </Typography>
+            <Typography variant="h6" align="center">
+              &nbsp;&nbsp;&nbsp;
+
+            </Typography>
           </CardContent>
         </Card>
       </Box>
@@ -104,6 +109,10 @@ const How = () => {
           <CardContent>
             <Typography variant="h5" m>
               Step 5:
+            </Typography>
+            <Typography variant="h6" align="center">
+              &nbsp;&nbsp;&nbsp;
+
             </Typography>
           </CardContent>
         </Card>
