@@ -9,6 +9,10 @@ import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 
 const Home = () => {
+  const Bstyle = {
+    color: "white",
+  };
+
   const useStyles = makeStyles({
     root: {
       maxWidth: 400,
@@ -39,12 +43,12 @@ const Home = () => {
           </Typography>
         </Box>
 
-        <Box maxWidth={600} marginLeft={80} marginX={-90} marginTop={20}>
-          <Typography align="right">
-            &nbsp; Quisque vitae iaculis dui. Phasellus in cursus orci. Praesent
-            rutrum, urna ac iaculis facilisis, massa mauris tempor magna, sit
-            amet lobortis massa augue sed dui. Suspendisse urna metus, tempor a
-            egestas vitae, tristique id leo. Aliquam id egestas quam.
+        <Box maxWidth={600} marginLeft={80} marginX={-90} marginTop={40}>
+          <Typography variant = "h4" align = "left" style = {Bstyle}>
+            About:
+          </Typography>
+          <Typography align="right" variant ="body1">
+            &nbsp; Facilitate better harvests and provide a more enjoyable gardening experience.
           </Typography>
         </Box>
       </Grid>
