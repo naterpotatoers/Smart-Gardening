@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 
-import React from 'react';
+import React from "react";
 import logo from "../logo.svg";
 import "../App.css";
 import "../components/NavBar.css";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Button, Toolbar, AppBar, IconButton, ListItem, ListItemText, List, ListItemIcon, MenuList, Menu, MenuItem, Divider } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import { height } from "@material-ui/system";
-
+import {
+  Button,
+  Toolbar,
+  AppBar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Divider,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const Bstyle = {
   color: "white",
@@ -16,17 +22,14 @@ const Bstyle = {
 
 const Mstyle = {
   color: "black",
-
-  
 };
 // MouseOver & MouseOut for the navbar
 function MouseOver(event) {
   event.target.style.color = "yellow";
 }
 
-function MouseMover(event)
-{
-    event.target.style.color = "blue";
+function MouseMover(event) {
+  event.target.style.color = "blue";
 }
 
 //MouseMover & MouseMout for the drop down menu
@@ -36,13 +39,11 @@ function MouseOut(event) {
 
 function MouseMout(event) {
   event.target.style.color = "black";
- 
-  
 }
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
+// function ListItemLink(props) {
+//   return <ListItem button component="a" {...props} />;
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,19 +53,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = () => {
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   const classes = useStyles();
-
 
   return (
     <nav className="navbar">
@@ -112,130 +111,108 @@ const Navbar = () => {
                 Register
               </Button>
             </Link>
-           
+
             <IconButton
               style={Bstyle}
               onMouseOver={MouseOver}
               onMouseOut={MouseOut}
-              aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
             >
               <MenuIcon />
-              </IconButton>
+            </IconButton>
 
-              <Menu
-
+            <Menu
               elevation={0}
               getContentAnchorEl={null}
-
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               id="simple-menu"
               anchorEl={anchorEl}
               keepMounted
               open={Boolean(anchorEl)}
               onClose={handleClose}
-
-              
-              
-              >
-           
-                  <MenuItem  onClick={handleClose} 
-           
+            >
+              <MenuItem onClick={handleClose}>
+                <Link to="/all" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
                   >
-                  
-                  <Link to="/all" style={{ textDecoration: 'none' }}
-                  >
-                    <Button
-                        style={Mstyle}
-                        onMouseOver={MouseMover}
-                        onMouseOut={MouseMout}
-                        className={classes.root}
-
-                    >
                     All
-                    </Button>
-                   </Link>
-                  </MenuItem>
-                <Divider></Divider>
-                  <MenuItem  onClick={handleClose}>
-                    <Link to="/analitics" style={{ textDecoration: 'none' }}>
-                     <Button
-                        style={Mstyle}
-                        onMouseOver={MouseMover}
-                        onMouseOut={MouseMout}
-                        className={classes.root}
-
-                    >
+                  </Button>
+                </Link>
+              </MenuItem>
+              <Divider></Divider>
+              <MenuItem onClick={handleClose}>
+                <Link to="/analitics" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
+                  >
                     Analitics
-                    </Button>
-                    </Link>
-                  </MenuItem>
-                  <Divider></Divider>
+                  </Button>
+                </Link>
+              </MenuItem>
+              <Divider></Divider>
 
-                  <MenuItem  onClick={handleClose}>
-                  
-                    <Link to="/create" style={{ textDecoration: 'none' }}>
-                      <Button
-                        style={Mstyle}
-                        onMouseOver={MouseMover}
-                        onMouseOut={MouseMout}
-                        className={classes.root}
+              <MenuItem onClick={handleClose}>
+                <Link to="/create" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
+                  >
+                    Plant
+                  </Button>
+                </Link>
+              </MenuItem>
+              <Divider></Divider>
 
-                      >
-                        Plant
-                      </Button>
-                    </Link>
-                  </MenuItem>
-                  <Divider></Divider>
+              <MenuItem onClick={handleClose}>
+                <Link to="/profile" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
+                  >
+                    Profile
+                  </Button>
+                </Link>
+              </MenuItem>
+              <Divider></Divider>
 
-                  <MenuItem  onClick={handleClose}>
-                  
-                  <Link to="/profile" style={{ textDecoration: 'none' }}>
-                    <Button
-                      style={Mstyle}
-                      onMouseOver={MouseMover}
-                      onMouseOut={MouseMout}
-                      className={classes.root}
-
-                    >
-                      Profile
-                    </Button>
-                  </Link>
-                </MenuItem>
-                <Divider></Divider>
-
-                <MenuItem  onClick={handleClose}>
-                    <Link to="/start" style={{ textDecoration: 'none' }}>
-                    <Button
-                      style={Mstyle}
-                      onMouseOver={MouseMover}
-                      onMouseOut={MouseMout}
-                      className={classes.root}
-
-                    >
-                      Start
-                    </Button>
-                    </Link>
-                  </MenuItem>
-
-          
-              </Menu>
-  
+              <MenuItem onClick={handleClose}>
+                <Link to="/start" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
+                  >
+                    Start
+                  </Button>
+                </Link>
+              </MenuItem>
+            </Menu>
           </div>
         </Toolbar>
-      
       </AppBar>
     </nav>
-
   );
-  
 };
-
 
 export default Navbar;
