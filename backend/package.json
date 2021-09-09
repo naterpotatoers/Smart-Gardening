@@ -33,6 +33,7 @@
     "dynamoose": "^2.7.3",
     "mysql2": "^2.2.5",
     "nestjs-dynamoose": "^0.3.2",
+    "pm2": "^5.1.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
