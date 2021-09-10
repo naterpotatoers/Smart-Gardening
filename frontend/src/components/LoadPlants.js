@@ -41,10 +41,12 @@ export const LoadPlants = () => {
         {items.map((item) => (
           <Card key={item.timestamp} variant="outlined">
             <CardContent>
-              <Typography>{item.timestamp}</Typography>
-              <Typography>{item.data.nodeId}</Typography>
+              <Typography>Epoch: {item.timestamp}</Typography>
+              <Typography>Node Id: {item.data.nodeId}</Typography>
               <Typography>Soil Moisture: {item.data.soilMoisture}</Typography>
               <Typography>Sun Intensity: {item.data.sunIntensity}</Typography>
+              <Typography>Temperature: {item.data.temperature}</Typography>
+              <Typography>Humidity: {item.data.humidity}</Typography>
             </CardContent>
           </Card>
         ))}
