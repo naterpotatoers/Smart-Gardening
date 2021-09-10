@@ -7,12 +7,12 @@ const DataSchema = new Schema({
   soilMoisture: {
     type: Number,
   },
-  // humidity: {
-  //   type: Number,
-  // },
-  // temperature: {
-  //   type: Number,
-  // },
+  humidity: {
+    type: Number,
+  },
+  temperature: {
+    type: Number,
+  },
   sunIntensity: {
     type: Number,
   },
