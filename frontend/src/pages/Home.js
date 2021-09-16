@@ -44,10 +44,10 @@ const Home = () => {
         </Box>
 
         <Box maxWidth={600} marginLeft={80} marginX={-90} marginTop={40}>
-          <Typography variant = "h4" align = "left" style = {Bstyle}>
+          <Typography variant="h4" align="left" style={Bstyle}>
             About:
           </Typography>
-          <Typography align="right" variant ="body1">
+          <Typography align="right" variant="body1">
             &nbsp; Facilitate better harvests and provide a more enjoyable gardening experience.
           </Typography>
         </Box>
