@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateImageDto } from './dto/create-image.dto';
@@ -13,18 +13,6 @@ export class ImageService {
     @InjectRepository(Image)
     private repository: Repository<Image>,
   ) {}
-
-  findAll() {
-    return this.repository.find();
-  }
-
-  findOne(id: string) {
-    return this.repository.findOne(id);
-  }
-
-  async remove(id: string): Promise<void> {
-    await this.repository.delete(id);
-  }
 
   async create(dataBuffer: Buffer, filename: string) {
     const s3 = new S3();
@@ -42,5 +30,31 @@ export class ImageService {
     });
     await this.repository.save(newFile);
     return newFile;
+  }
+
+  findAll() {
+    return this.repository.find();
+  }
+
+  async findOne(id: string) {
+    const s3 = new S3();
+    const fileInfo = await this.repository.findOne(id);
+    if (fileInfo) {
+      const stream = await s3
+        .getObject({
+          Bucket: process.env.AWS_S3_BUCKET,
+          Key: fileInfo.key,
+        })
+        .createReadStream();
+      return {
+        stream,
+        info: fileInfo,
+      };
+    }
+    throw new NotFoundException();
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.repository.delete(id);
   }
 }
