@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm';
-import { IsDate, IsNotEmpty, IsOptional, Length } from 'class-validator';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { IsNotEmpty, IsOptional, Length } from 'class-validator';
 
 @Entity()
 export class Dynamo {

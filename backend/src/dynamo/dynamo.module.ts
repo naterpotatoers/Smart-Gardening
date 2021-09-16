@@ -7,7 +7,7 @@ import { DynamoService } from './dynamo.service';
 @Module({
   imports: [
     DynamooseModule.forFeature([
-      { name: 'smart-gardening-v1', schema: DynamoSchema },
+      { name: 'smart-gardening-v2', schema: DynamoSchema },
     ]),
   ],
   exports: [DynamooseModule],

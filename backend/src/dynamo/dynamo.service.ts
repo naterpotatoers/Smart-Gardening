@@ -5,7 +5,7 @@ import { Dynamo, DynamoKey } from './dynamo.interface';
 @Injectable()
 export class DynamoService {
   constructor(
-    @InjectModel('smart-gardening-v1')
+    @InjectModel('smart-gardening-v2')
     private userModel: Model<Dynamo, DynamoKey>,
   ) {}
 

@@ -30,7 +30,7 @@ async function bootstrap() {
     customSiteTitle: 'Smart Gardening API',
   });
 
-  await app.listen(process.env.port);
+  await app.listen(5000);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import React from 'react';
+import React from "react";
 import logo from "../logo.svg";
 import "../App.css";
 import "../components/NavBar.css";
@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = () => {
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -60,7 +59,6 @@ const Navbar = () => {
   };
 
   const classes = useStyles();
-
 
   return (
     <nav className="navbar">
@@ -113,23 +111,25 @@ const Navbar = () => {
               style={Bstyle}
               onMouseOver={MouseOver}
               onMouseOut={MouseOut}
-              aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
             >
               <MenuIcon />
             </IconButton>
 
             <Menu
 
+            
               elevation={0}
               getContentAnchorEl={null}
-
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               id="simple-menu"
               anchorEl={anchorEl}
@@ -152,7 +152,6 @@ const Navbar = () => {
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
-
                   >
                     All
                   </Button>
@@ -166,7 +165,6 @@ const Navbar = () => {
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
-
                   >
                     Analitics
                   </Button>
@@ -182,7 +180,6 @@ const Navbar = () => {
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
-
                   >
                     Plant
                   </Button>
@@ -198,7 +195,6 @@ const Navbar = () => {
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
-
                   >
                     Profile
                   </Button>
@@ -213,7 +209,6 @@ const Navbar = () => {
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
-
                   >
                     Start
                   </Button>
@@ -228,10 +223,7 @@ const Navbar = () => {
 
       </AppBar>
     </nav>
-
   );
-
 };
-
 
 export default Navbar;
