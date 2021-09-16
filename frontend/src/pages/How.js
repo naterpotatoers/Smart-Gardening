@@ -481,7 +481,7 @@ const How = () => {
                     <CardMedia
                       component="img"
                       alt="Sprout"
-                      height="600"
+                      //height="600"
                       image="./images/BB6.jpg"
                       title="Sprout"
                     />
