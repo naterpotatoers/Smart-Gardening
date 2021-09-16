@@ -14,7 +14,8 @@ import { User } from './users/entities/user.entity';
 import { PlantsModule } from './plants/plants.module';
 import { Plant } from './plants/entities/plant.entity';
 import { DynamoModule } from './dynamo/dynamo.module';
-import { S3Module } from './s3/s3.module';
+import { ImageModule } from './image/image.module';
+import { Image } from './image/entities/image.entity';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { S3Module } from './s3/s3.module';
     GardensModule,
     PlantsModule,
     DynamoModule,
+    ImageModule,
     DynamooseModule.forRoot({
       aws: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -38,10 +40,9 @@ import { S3Module } from './s3/s3.module';
       username: process.env.AWS_RDS_USERNAME,
       password: process.env.AWS_RDS_PASSWORD,
       database: process.env.AWS_RDS_DATABASE,
-      entities: [User, Garden, Node, Plant],
+      entities: [User, Garden, Node, Plant, Image],
       synchronize: true,
     }),
-    S3Module,
   ],
   controllers: [AppController],
   providers: [AppService],
