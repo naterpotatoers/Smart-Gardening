@@ -14,6 +14,7 @@ import { User } from './users/entities/user.entity';
 import { PlantsModule } from './plants/plants.module';
 import { Plant } from './plants/entities/plant.entity';
 import { DynamoModule } from './dynamo/dynamo.module';
+import { S3Module } from './s3/s3.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { DynamoModule } from './dynamo/dynamo.module';
       entities: [User, Garden, Node, Plant],
       synchronize: true,
     }),
+    S3Module,
   ],
   controllers: [AppController],
   providers: [AppService],
