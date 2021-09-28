@@ -22,9 +22,16 @@ def readSoilMoisture():
 
 def takePicture():
     print("taking picture")
+    camera.start_preview()
+    time.sleep(3)
+    camera.stop_preview()
 
 def waterPlants():
     print("watering plants")
+    GPIO.output(21,GPIO.HIGH)
+    time.sleep(3)
+    GPIO.output(21, GPIO.LOW)
+
     
 # An example subscribe topic for AWS IoT Core
 def exampleSubscribeFunction(self, params, packet):
@@ -38,23 +45,9 @@ def exampleSubscribeFunction(self, params, packet):
     if(packetPayloadJSON["waterPlants"]):
         waterPlants()
 
-def activateBlinkMode(self, params, packet):
-    print("Blink mode called!")
-
-# GPIO.setwarnings(False)
-# GPIO.setmode(GPIO.BCM)
-# GPIO.setup(21, GPIO.OUT)
-
-# if __name__ == '__main__':
-#         while True:
-#                 print("Turning pin HIGH")
-#                 GPIO.output(21,GPIO.HIGH)
-#                 time.sleep(2)
-#                 print("Turning pin LOW")
-#                 GPIO.output(21, GPIO.LOW)
-#                 time.sleep(2)
-
-
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(21, GPIO.OUT)
 
 myMQTTClient = AWSIoTMQTTClient("NatesId")
 myMQTTClient.configureEndpoint(secrets.aws_endpoint, 8883)
@@ -71,9 +64,7 @@ myMQTTClient.connect()
 print("Subscribing to a topic")
 myMQTTClient.subscribe("topic/sensors", 1, exampleSubscribeFunction)
 camera = PiCamera()
-camera.start_preview()
-time.sleep(10)
-camera.stop_preview()
+
 while True:
     time.sleep(5)
 

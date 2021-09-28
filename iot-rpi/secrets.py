@@ -1,3 +1,5 @@
+aws_endpoint = "a2ghq5rhzqwims-ats.iot.us-west-2.amazonaws.com"
+
 root_ca = """
 -----BEGIN CERTIFICATE-----
 MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF
@@ -71,4 +73,3 @@ zLt+i1knwtHMgyb5eo3Xp8ejMy1YZAuM6RdUvSw3I7SmZgeW2Q5h/sOn5dXTpjkS
 DW+z8WcT7pswDXu/g7zRWMmpoBV6uCrQzH2NYZgJRcaieHs42qWmv9GKSwYubQ==
 -----END CERTIFICATE-----
 """
-aws_endpoint = "a2ghq5rhzqwims-ats.iot.us-west-2.amazonaws.com"
