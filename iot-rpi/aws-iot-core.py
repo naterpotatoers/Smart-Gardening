@@ -3,6 +3,7 @@ import time
 import json
 
 import RPi.GPIO as GPIO
+from picamera import PiCamera
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import Adafruit_ADS1x15
 
@@ -69,6 +70,10 @@ myMQTTClient.connect()
 
 print("Subscribing to a topic")
 myMQTTClient.subscribe("topic/sensors", 1, exampleSubscribeFunction)
+camera = PiCamera()
+camera.start_preview()
+time.sleep(10)
+camera.stop_preview()
 while True:
     time.sleep(5)
 
