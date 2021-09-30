@@ -1,6 +1,5 @@
 # Initial draft of AWS IoT Core code for Raspberry Pi
-import time
-import json
+import time, json, requests
 
 import RPi.GPIO as GPIO
 from picamera import PiCamera
@@ -24,17 +23,22 @@ def takePicture():
     print("taking picture")
     camera.start_preview()
     time.sleep(3)
+    camera.capture('rpi-cam.jpg')
     camera.stop_preview()
+
+def uploadImage():
+    url = "localhost:5000/images"
+    body = {'file': './rpi-cam.jpg'}
+    res = requests.post(url, data = body)
 
 def waterPlants():
     print("watering plants")
     GPIO.output(21,GPIO.HIGH)
-    time.sleep(3)
+    time.sleep(60)
     GPIO.output(21, GPIO.LOW)
-
     
 # An example subscribe topic for AWS IoT Core
-def exampleSubscribeFunction(self, params, packet):
+def subscribeHandler(self, params, packet):
     print('Received message from AWS IoT Core')
     print('Topic: ' + packet.topic)
     print("Payload: ", (packet.payload))
@@ -44,6 +48,8 @@ def exampleSubscribeFunction(self, params, packet):
         takePicture()
     if(packetPayloadJSON["waterPlants"]):
         waterPlants()
+    if(packetPayloadJSON["samplePlants"]):
+        readSoilMoisture()
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -62,7 +68,7 @@ print('Initiating realtime data transfer from Raspberry Pi...')
 myMQTTClient.connect()
 
 print("Subscribing to a topic")
-myMQTTClient.subscribe("topic/sensors", 1, exampleSubscribeFunction)
+myMQTTClient.subscribe("topic/sensors", 1, subscribeHandler)
 camera = PiCamera()
 
 while True:
