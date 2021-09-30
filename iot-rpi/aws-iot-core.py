@@ -1,5 +1,5 @@
 # Initial draft of AWS IoT Core code for Raspberry Pi
-import time, json, requests
+import time, json, requests, os
 
 import RPi.GPIO as GPIO
 from picamera import PiCamera
@@ -8,7 +8,7 @@ import Adafruit_ADS1x15
 
 import secrets
 
-# Reads soil moisture from ads1115 analog inputs
+# Reads soil moisture from ads1115 analog inputs - not used, use esp32 node
 def readSoilMoisture():
     adc = Adafruit_ADS1x15.ADS1115()
     GAIN = 1
@@ -23,13 +23,23 @@ def takePicture():
     print("taking picture")
     camera.start_preview()
     time.sleep(3)
-    camera.capture('rpi-cam.jpg')
+    camera.capture('rpi-cam-image.jpg')
     camera.stop_preview()
 
 def uploadImage():
-    url = "localhost:5000/images"
-    body = {'file': './rpi-cam.jpg'}
-    res = requests.post(url, data = body)
+    print("uploading...")
+    url = "http://192.168.1.103:5000/image"
+    response = requests.post(url, files={'file':open("rpi-cam-image.jpg",'rb')})
+    print(response.text)
+
+def uploadDataMqtt(payload):
+    payload_json = json.dumps(payload)
+    print("Publishing message from Raspberry Pi 4")
+    myMQTTClient.publish(
+        topic="topic/sensors",
+        QoS=1,
+        payload= payload_json
+    )
 
 def waterPlants():
     print("watering plants")
@@ -46,10 +56,17 @@ def subscribeHandler(self, params, packet):
     print(packetPayloadJSON)
     if(packetPayloadJSON["takePicture"]):
         takePicture()
+        uploadImage()
     if(packetPayloadJSON["waterPlants"]):
         waterPlants()
-    if(packetPayloadJSON["samplePlants"]):
-        readSoilMoisture()
+    # if(packetPayloadJSON["samplePlants"]):
+    #     sensor_data = readSoilMoisture()
+    #     payload = {
+    #         "sensor_name": "Raspberry Pi 4",
+    #         "user_name": "naters",
+    #         "farm_name": "nates tomato farm"
+    #     }
+    #     uploadDataMqtt(payload)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -68,27 +85,9 @@ print('Initiating realtime data transfer from Raspberry Pi...')
 myMQTTClient.connect()
 
 print("Subscribing to a topic")
-myMQTTClient.subscribe("topic/sensors", 1, subscribeHandler)
+myMQTTClient.subscribe("topic/sensors/nates-rpi", 1, subscribeHandler)
 camera = PiCamera()
+print("listening for mqtt commands")
 
 while True:
     time.sleep(5)
-
-sensor_data = readSoilMoisture()
-
-payload = {
-    "sensor_name": "Raspberry Pi 4",
-    "user_name": "naters",
-    "farm_name": "nates tomato farm",
-    "a0": sensor_data[0],
-    "a1": sensor_data[1]
-}
-
-payload_json = json.dumps(payload)
-
-print("Publishing message from Raspberry Pi 4")
-myMQTTClient.publish(
-    topic="topic/sensors",
-    QoS=1,
-    payload= payload_json
-)
