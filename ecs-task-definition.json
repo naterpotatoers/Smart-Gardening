@@ -1,65 +1,81 @@
 {
-    "ipcMode": null,
-    "executionRoleArn": null,
-    "containerDefinitions": [
-      {
-        "dnsSearchDomains": null,
-        "environmentFiles": null,
-        "logConfiguration": null,
-        "entryPoint": null,
-        "portMappings": [
-          {
-            "hostPort": 0,
-            "protocol": "tcp",
-            "containerPort": 5000
-          }
-        ],
-        "command": null,
-        "linuxParameters": null,
-        "cpu": 0,
-        "environment": [],
-        "resourceRequirements": null,
-        "ulimits": null,
-        "dnsServers": null,
-        "mountPoints": [],
-        "workingDirectory": null,
-        "secrets": null,
-        "dockerSecurityOptions": null,
-        "memory": null,
-        "memoryReservation": 300,
-        "volumesFrom": [],
-        "stopTimeout": null,
-        "image": "936721172903.dkr.ecr.us-west-2.amazonaws.com/smart-gardening-backend",
-        "startTimeout": null,
-        "firelensConfiguration": null,
-        "dependsOn": null,
-        "disableNetworking": null,
-        "interactive": null,
-        "healthCheck": null,
-        "essential": true,
-        "links": null,
-        "hostname": null,
-        "extraHosts": null,
-        "pseudoTerminal": null,
-        "user": null,
-        "readonlyRootFilesystem": null,
-        "dockerLabels": null,
-        "systemControls": null,
-        "privileged": null,
-        "name": "smart-gardening-backend"
-      }
-    ],
-    "placementConstraints": [],
-    "memory": null,
-    "taskRoleArn": null,
-    "family": "smart-gardening-backend-definition",
-    "pidMode": null,
-    "requiresCompatibilities": [
-      "EC2"
-    ],
-    "networkMode": null,
-    "cpu": null,
-    "inferenceAccelerators": null,
-    "proxyConfiguration": null,
-    "volumes": []
-  }
+  "ipcMode": null,
+  "executionRoleArn": null,
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": null,
+      "environmentFiles": null,
+      "logConfiguration": null,
+      "entryPoint": null,
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 5000
+        }
+      ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": null,
+      "memoryReservation": 1000,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "936721172903.dkr.ecr.us-west-2.amazonaws.com/smart-gardening",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "smart-gardening"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": null,
+  "taskRoleArn": null,
+  "compatibilities": ["EXTERNAL", "EC2"],
+  "taskDefinitionArn": "arn:aws:ecs:us-west-2:936721172903:task-definition/smart-gardening-ecs-task:1",
+  "family": "smart-gardening-ecs-task",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+    }
+  ],
+  "pidMode": null,
+  "requiresCompatibilities": ["EC2"],
+  "networkMode": null,
+  "cpu": null,
+  "revision": 1,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
+}
