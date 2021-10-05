@@ -38,6 +38,7 @@ export class ImageService {
 
   async findOne(id: string) {
     const s3 = new S3();
+    // return await this.repository.findOne(id);
     const fileInfo = await this.repository.findOne(id);
     if (fileInfo) {
       const stream = await s3

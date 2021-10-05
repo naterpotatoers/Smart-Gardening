@@ -1,9 +1,11 @@
+import { LoadImages } from "../components/LoadImages";
+
 const Analitics = () => {
-    return (
-      <div className="analitics">
-        <h2>Plant Analitics</h2>
-      </div>
-    );
-  };
-  
-  export default Analitics;
+  return (
+    <div className="analitics">
+      <LoadImages />
+    </div>
+  );
+};
+
+export default Analitics;

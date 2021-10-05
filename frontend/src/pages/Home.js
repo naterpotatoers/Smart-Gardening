@@ -48,7 +48,8 @@ const Home = () => {
             About:
           </Typography>
           <Typography align="right" variant="body1">
-            &nbsp; Facilitate better harvests and provide a more enjoyable gardening experience.
+            &nbsp; Facilitate better harvests and provide a more enjoyable
+            gardening experience.
           </Typography>
         </Box>
       </Grid>
