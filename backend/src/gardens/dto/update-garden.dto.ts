@@ -5,6 +5,4 @@ import { CreateGardenDto } from './create-garden.dto';
 
 export class UpdateGardenDto extends PartialType(CreateGardenDto) {
   location: string;
-  nodes: Node[];
-  plants: Plant[];
 }
