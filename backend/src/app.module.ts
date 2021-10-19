@@ -16,6 +16,7 @@ import { Plant } from './plants/entities/plant.entity';
 import { DynamoModule } from './dynamo/dynamo.module';
 import { ImageModule } from './image/image.module';
 import { Image } from './image/entities/image.entity';
+import { MqttModule } from './mqtt/mqtt.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { Image } from './image/entities/image.entity';
       entities: [User, Garden, Node, Plant, Image],
       synchronize: true,
     }),
+    MqttModule,
   ],
   controllers: [AppController],
   providers: [AppService],
