@@ -1,5 +1,6 @@
 export class CreatePlantDto {
   id: string;
   startDate: Date;
-  harvestDate?: Date;
+  harvestDate: Date;
+  userId: string;
 }

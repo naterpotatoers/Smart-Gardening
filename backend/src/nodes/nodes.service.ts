@@ -18,6 +18,8 @@ export class NodesService {
     node.startDate = dto.startDate;
     node.description = dto.description;
     node.sensors = dto.sensors;
+    node.userId = dto.userId;
+    node.gardenId = dto.gardenId;
     return this.nodeRepository.save(node);
   }
 
@@ -34,6 +36,8 @@ export class NodesService {
     node.id = dto.id;
     node.description = dto.description;
     node.sensors = dto.sensors;
+    node.gardenId = dto.gardenId;
+    node.userId = dto.userId;
     return await this.nodeRepository.update(id, node);
   }
 
