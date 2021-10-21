@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
-// import { SortOrder } from 'dynamoose/dist/General';
+import { isNumber } from 'class-validator';
+import { SortOrder } from 'dynamoose/dist/General';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import { Dynamo, DynamoKey } from './dynamo.interface';
+// import {SortOrder} from ''
 
 @Injectable()
 export class DynamoService {
@@ -11,14 +13,15 @@ export class DynamoService {
   ) {}
 
   findOne(nodeId: string) {
-    return this.dynamoModel.scan().where('nodeId').contains(nodeId).exec();
+    return this.dynamoModel
+      .scan()
+      .where('nodeId')
+      .contains(nodeId)
+      .limit(300)
+      .exec();
   }
 
   findAll() {
-    return this.dynamoModel.scan().exec();
-    // return this.dynamoModel
-    //   .query('timestamp')
-    //   .sort(SortOrder.descending)
-    //   .exec();
+    return this.dynamoModel.scan().limit(300).exec();
   }
 }
