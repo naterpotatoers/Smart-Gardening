@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+//import CircularProgress from "@material-ui/core/CircularProgress";
 import Card from "@material-ui/core/Card";
 import { CardContent, Typography } from "@material-ui/core";
-import { Line, Bar, Scatter } from 'react-chartjs-2';
+import { Line} from 'react-chartjs-2';
 import axios from "axios";
 
 
 
 export const LoadPlants = () => {
   
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+ // const [error, setError] = useState(null);
+  //const [isLoaded, setIsLoaded] = useState(false);
   //const [items, setItems] = useState([]);
   const [chartData, setChartData] = useState({})
-  const [temperature, setTemperature] = useState([]);
-  const [timestamp, setTimeStamp] = useState([]);
-  const [items, setItems] = useState([]);
+ // const [temperature, setTemperature] = useState([]);
+  ///const [timestamp, setTimeStamp] = useState([]);
+  //const [items, setItems] = useState([]);
 
   let temp =[];
   let hum = [];
-  let soilM = [];
+  //let soilM = [];
   let time =[];
   let timeepoch =[];
   let id = [];
   let Node = 'melody-esp32-1'
-  let day =1631174400; //Thursday, September 9, 2021 1:00:00 AM GMT-07:00
-  let nextday = 1631260800; /// Friday, September 10, 2021 1:00:00 AM GMT-07:00
+  //let day =1631174400; //Thursday, September 9, 2021 1:00:00 AM GMT-07:00
+  //let nextday = 1631260800; /// Friday, September 10, 2021 1:00:00 AM GMT-07:00
   
 
 
