@@ -9,10 +9,9 @@ let plants = [];
 
 //all routes in here are start with /plants
 export const getPlants = (req, res) => {
-    //const dbTable = "plants";
     let queryString = "SELECT * FROM plants";
-    //const query = mysql.format(queryString, [dbTable]);
-    connection.query(queryString, function(results) {
+    connection.query(queryString, function(err, results, fields) {
+        if (err) throw err;
         console.log("We can get all Plants");
         res.send(results);
     });
@@ -22,19 +21,15 @@ export const getPlants = (req, res) => {
 export const createPlant = (req,res) => {
     //revieve user request
     const plant = req.body;
-    //save contents to database
-    plants.push(plant);
-    //send response to user that request was added correctly
-    res.send(`Plant Data with the name ${plant.commonName} added to the database!`);
-    
-    const dbTable = "plants";
-    const queryString = "INSERT INTO ? (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    const query = mysql.format(queryString, [ 
-        dbTable, "commonName", "scientificName", "growingSeason", "weeksBeforeLastFrost", "sunlight", "tempMax", "tempMin", "humidityMax", "humidityMin", "phMax", "phMin", "id",
-        plant.commonName, plant.scientificName, plant.growingSeason, plant.weeksBeforeLastFrost, plant.sunlight, plant.tempMax, plant.tempMin, plant.humidityMax, plant.humidityMin, plant.phMax, plant.phMin, plant.id
-    ]);
-    connection.query(query, (err, results) => {
+    const queryString = "INSERT INTO plants('commonName', 'scientificName', 'growingSeason', 'weeksBeforeLastFrost', 'sunlight', 'tempMax', 'tempMin', 'humidityMax', 'humidityMin', 'phMax', 'phMin', 'id') VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const query = mysql.format(queryString, [plant.commonName, plant.scientificName, plant.growingSeason, plant.weeksBeforeLastFrost, plant.sunlight, plant.tempMax, plant.tempMin, plant.humidityMax, plant.humidityMin, plant.phMax, plant.phMin, plant.id]);
+    connection.query(query, function(err, results, fields) {
+        if (err) throw err;
         console.log("We can get create a plant");
+
+        //send response to user that request was added correctly
+        res.send(`Plant Data with the name ${plant.commonName} added to the database!`);
+    
         res.send(results);
     })
 }
