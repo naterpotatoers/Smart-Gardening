@@ -40,7 +40,4 @@ export class User {
   @Column()
   @IsOptional()
   profilePic: string;
-
-  @OneToMany((type) => Garden, (garden) => garden.user)
-  gardens: Garden[];
 }

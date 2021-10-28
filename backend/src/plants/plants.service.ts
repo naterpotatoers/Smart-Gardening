@@ -17,6 +17,7 @@ export class PlantsService {
     plant.id = dto.id;
     plant.startDate = dto.startDate;
     plant.harvestDate = dto.harvestDate;
+    plant.userId = dto.userId;
     return this.plantRepository.save(plant);
   }
 

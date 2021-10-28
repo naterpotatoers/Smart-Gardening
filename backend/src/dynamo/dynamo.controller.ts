@@ -19,4 +19,9 @@ export class DynamoController {
   findAll() {
     return this.dynamoService.findAll();
   }
+
+  @Get(':nodeId')
+  findOne(@Param('nodeId') nodeId: string) {
+    return this.dynamoService.findOne(nodeId);
+  }
 }

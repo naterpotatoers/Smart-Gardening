@@ -17,9 +17,7 @@ export class GardensService {
     garden.id = dto.id;
     garden.location = dto.location;
     garden.startDate = dto.startDate;
-    garden.user = dto.user;
-    garden.nodes = dto.nodes;
-    garden.plants = dto.plants;
+    garden.userId = dto.userId;
     return this.gardenRepository.save(garden);
   }
 
@@ -34,8 +32,6 @@ export class GardensService {
   async update(id: string, dto: UpdateGardenDto) {
     const garden = await this.findOne(id);
     garden.location = dto.location;
-    garden.nodes = dto.nodes;
-    garden.plants = dto.plants;
     return await this.gardenRepository.update(id, garden);
   }
 

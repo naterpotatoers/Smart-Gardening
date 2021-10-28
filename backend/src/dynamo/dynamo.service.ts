@@ -1,19 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { isNumber } from 'class-validator';
+import { SortOrder } from 'dynamoose/dist/General';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import { Dynamo, DynamoKey } from './dynamo.interface';
+// import {SortOrder} from ''
 
 @Injectable()
 export class DynamoService {
   constructor(
     @InjectModel('smart-gardening-v2')
-    private userModel: Model<Dynamo, DynamoKey>,
+    private dynamoModel: Model<Dynamo, DynamoKey>,
   ) {}
 
-  findOne(key: DynamoKey) {
-    return this.userModel.get(key);
+  findOne(nodeId: string) {
+    return this.dynamoModel
+      .scan()
+      .where('nodeId')
+      .contains(nodeId)
+      .limit(300)
+      .exec();
   }
 
   findAll() {
-    return this.userModel.scan().exec();
+    return this.dynamoModel.scan().limit(300).exec();
   }
 }

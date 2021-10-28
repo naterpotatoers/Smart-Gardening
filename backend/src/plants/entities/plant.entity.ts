@@ -20,6 +20,7 @@ export class Plant {
   @IsOptional()
   harvestDate: Date;
 
-  @ManyToOne((type) => Garden, (garden) => garden.plants)
-  garden: Garden;
+  @Column()
+  @IsNotEmpty()
+  userId: String;
 }

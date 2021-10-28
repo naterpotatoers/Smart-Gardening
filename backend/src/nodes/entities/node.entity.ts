@@ -37,6 +37,11 @@ export class Node {
   @IsOptional()
   sensors: string;
 
-  @ManyToOne((type) => Garden, (garden) => garden.nodes)
-  garden: Garden;
+  @Column()
+  @IsNotEmpty()
+  userId: string;
+
+  @Column()
+  @IsOptional()
+  gardenId: string;
 }
