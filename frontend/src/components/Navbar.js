@@ -5,9 +5,16 @@ import logo from "../logo.svg";
 import "../App.css";
 import "../components/NavBar.css";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Button, Toolbar, AppBar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-
+import {
+  Button,
+  Toolbar,
+  AppBar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Divider,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const Bstyle = {
   color: "white",
@@ -15,8 +22,6 @@ const Bstyle = {
 
 const Mstyle = {
   color: "black",
-
-
 };
 // MouseOver & MouseOut for the navbar
 function MouseOver(event) {
@@ -34,11 +39,7 @@ function MouseOut(event) {
 
 function MouseMout(event) {
   event.target.style.color = "black";
-
-
 }
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -119,8 +120,6 @@ const Navbar = () => {
             </IconButton>
 
             <Menu
-
-            
               elevation={0}
               getContentAnchorEl={null}
               anchorOrigin={{
@@ -136,17 +135,9 @@ const Navbar = () => {
               keepMounted
               open={Boolean(anchorEl)}
               onClose={handleClose}
-
-
-
             >
-
-              <MenuItem onClick={handleClose}
-
-              >
-
-                <Link to="/all" style={{ textDecoration: 'none' }}
-                >
+              <MenuItem onClick={handleClose}>
+                <Link to="/all" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
@@ -159,22 +150,21 @@ const Navbar = () => {
               </MenuItem>
               <Divider></Divider>
               <MenuItem onClick={handleClose}>
-                <Link to="/analitics" style={{ textDecoration: 'none' }}>
+                <Link to="/analytics" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
                   >
-                    Analitics
+                    Analytics
                   </Button>
                 </Link>
               </MenuItem>
               <Divider></Divider>
 
               <MenuItem onClick={handleClose}>
-
-                <Link to="/create" style={{ textDecoration: 'none' }}>
+                <Link to="/create" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
@@ -188,8 +178,7 @@ const Navbar = () => {
               <Divider></Divider>
 
               <MenuItem onClick={handleClose}>
-
-                <Link to="/profile" style={{ textDecoration: 'none' }}>
+                <Link to="/profile" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
@@ -203,7 +192,7 @@ const Navbar = () => {
               <Divider></Divider>
 
               <MenuItem onClick={handleClose}>
-                <Link to="/start" style={{ textDecoration: 'none' }}>
+                <Link to="/start" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
@@ -214,13 +203,9 @@ const Navbar = () => {
                   </Button>
                 </Link>
               </MenuItem>
-
-
             </Menu>
-
           </div>
         </Toolbar>
-
       </AppBar>
     </nav>
   );
