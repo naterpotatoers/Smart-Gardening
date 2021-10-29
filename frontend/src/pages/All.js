@@ -1,11 +1,10 @@
-import { LoadPlants } from "../components/LoadPlants";
+import { LoadImages } from "../components/LoadImages";
 
 const All = () => {
   return (
     <div className="all">
       <h2>All Plants</h2>
-      <h3>Need to place chart here</h3>
-      <LoadPlants />
+      <LoadImages />
     </div>
   );
 };

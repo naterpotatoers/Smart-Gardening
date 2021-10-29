@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //import "./index.css";
-import './App.css';
+import "./App.css";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Register from "./pages/Register";
@@ -10,7 +10,7 @@ import Profile from "./pages/Profile";
 import How from "./pages/How";
 import Start from "./pages/Start";
 import All from "./pages/All";
-import Analitics from "./pages/Analitics";
+import Analytics from "./pages/Analytics";
 
 import Navbar from "./components/Navbar";
 import { Account } from "./utils/Accounts";
@@ -49,8 +49,8 @@ function App() {
               <Route path="/all">
                 <All />
               </Route>
-              <Route path="/analitics">
-                <Analitics />
+              <Route path="/analytics">
+                <Analytics />
               </Route>
             </Switch>
           </Account>
