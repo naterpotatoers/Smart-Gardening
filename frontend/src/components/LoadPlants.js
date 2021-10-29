@@ -1,118 +1,117 @@
-import { useState, useEffect } from "react";
-//import CircularProgress from "@material-ui/core/CircularProgress";
-import Card from "@material-ui/core/Card";
-import { CardContent, Typography } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import axios from "axios";
 
-export const LoadPlants = () => {
-  // const [error, setError] = useState(null);
-  //const [isLoaded, setIsLoaded] = useState(false);
-  //const [items, setItems] = useState([]);
-  const [chartData, setChartData] = useState({});
-  // const [temperature, setTemperature] = useState([]);
-  ///const [timestamp, setTimeStamp] = useState([]);
-  //const [items, setItems] = useState([]);
+export const LoadPlants = (props) => {
+  const [state, setState] = useState({});
+  const [temperatureState, setTemperatureState] = useState({});
+  const [humidityState, setHumidityState] = useState({});
+  const [soilMoistureState, setSoilMoistureState] = useState({});
+  const [sunIntensityState, setSunIntensityState] = useState({});
+  // const [timestampState, setTimestampState] = useState({});
+  console.log(props.userId);
+  let rawData = [];
+  let temperature = [];
+  let humidity = [];
+  let soilMoisture = [];
+  let sunIntensity = [];
+  let timestamp = [];
 
-  let temp = [];
-  let hum = [];
-  //let soilM = [];
-  let time = [];
-  let timeepoch = [];
-  let id = [];
-  let Node = "melody-esp32-1";
-  //let day =1631174400; //Thursday, September 9, 2021 1:00:00 AM GMT-07:00
-  //let nextday = 1631260800; /// Friday, September 10, 2021 1:00:00 AM GMT-07:00
+  function createGraph(data, label, dates) {
+    const graphInfo = {
+      labels: dates,
+      datasets: [
+        {
+          label: label,
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "rgba(0,0,0,0)",
+          borderColor: "rgba(75,192,192,1)",
+          borderCapStyle: "butt",
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: "miter",
+          pointBorderColor: "rgba(75,192,192,1)",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: data,
+        },
+      ],
+    };
+    return graphInfo;
+  }
 
-  const chart = () => {
-    axios
-      .get("http://54.213.41.248:5000/dynamo") //Data we are reading
-      .then((res) => {
-        console.log(res);
-
-        for (let dataObj of res.data) {
-          //if(dataObj.timestamp > day && dataObj.timestamp < nextday)
-          //{
-          if (dataObj.data.nodeId === Node) {
-            //getting specific node user
-            if (dataObj.data.temperature > 0) {
-              // ignoring the outlier numbers anything below 0
-              temp.push(parseFloat(dataObj.data.temperature)); // sorting temp into temp array
-              hum.push(parseInt); // storing humidity in hum array
-              id.push(dataObj.data.nodeId); // sorting the node id in id array
-            }
-            timeepoch.push(dataObj.timestamp); //storing date from epoch
-            //converting to human date
-            var date = new Date(dataObj.timestamp);
-            const upDate = date.toLocaleString(); //2019-12-9 10:30:15
-            time.push(upDate); // sotring the human date into time array
-
-            console.log(upDate); // display in console
-          }
-
-          // }
-        }
-
-        time.sort(); // sorting the time array
-
-        console.log(temp, time, id); // console display
-
-        //Data for the time vs temp chart
-        setChartData({
-          labels: time,
-          datasets: [
-            {
-              label: "Data",
-              data: temp,
-              backgroundColor: ["rgba(75,192,192,0.6)"],
-              borderWidth: 4,
-            },
-          ],
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const captureData = async () => {
+    const res = await fetch("http://54.213.41.248:5000/dynamo/nates-esp32-1");
+    rawData = await res.json();
   };
 
-  //////////////////////////////////////////////////////////
+  async function filterData(posts) {
+    posts.sort((x, y) => {
+      return x.timestamp - y.timestamp;
+    });
 
-  useEffect(() => {
-    chart();
+    await setState(rawData);
+    await console.log(state);
+
+    timestamp = posts.map((item) => {
+      return item.timestamp;
+    });
+    // setTimestampState(timestamp);
+    temperature = posts.map((item) => {
+      return item.data.temperature;
+    });
+    await setTemperatureState(temperature);
+    humidity = posts.map((item) => {
+      return item.data.humidity;
+    });
+    await setHumidityState(humidity);
+    soilMoisture = posts.map((item) => {
+      return item.data.soilMoisture;
+    });
+    await setSoilMoistureState(soilMoisture);
+    sunIntensity = posts.map((item) => {
+      return item.data.sunIntensity;
+    });
+    await setSunIntensityState(sunIntensity);
+  }
+
+  useEffect(async () => {
+    await captureData();
+    await filterData(rawData);
   }, []);
 
-  function list() {
-    let user = id[0];
-
-    for (let a = 0; a < temp.length; a++) {
-      return user + temp;
-    }
-  }
-  ///////////////////////////////////////////////////////////
   return (
     <div>
-      <div>
-        <Card>
-          <CardContent>
-            <Line
-              data={chartData}
-              options={{
-                scales: {
-                  y: {
-                    suggestedMax: 100,
-                    suggestedMin: 50,
-                  },
-                },
-              }}
-            />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent>
-            <Typography components={list}></Typography>
-          </CardContent>
-        </Card>
-      </div>
+      <h2>Temperature</h2>
+      <Line
+        data={createGraph(temperatureState, "Temperature", timestamp)}
+        width={400}
+        height={200}
+      />
+      <h2>Humidity</h2>
+      <Line
+        data={createGraph(humidityState, "Humidity", timestamp)}
+        width={400}
+        height={200}
+      />
+      <h2>Soil Moisture</h2>
+      <Line
+        data={createGraph(soilMoistureState, "Soil Moisture", timestamp)}
+        width={400}
+        height={200}
+      />
+      <h2>Sun Intensity</h2>
+      <Line
+        data={createGraph(sunIntensityState, "Sun Intensity", timestamp)}
+        width={400}
+        height={200}
+      />
     </div>
   );
 };

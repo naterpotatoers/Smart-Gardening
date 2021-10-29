@@ -4,7 +4,7 @@ const Analytics = () => {
   return (
     <div className="analytics">
       <h2>Plant Analytics</h2>
-      <LoadPlants />
+      <LoadPlants userId="admin@email.com" />
     </div>
   );
 };
