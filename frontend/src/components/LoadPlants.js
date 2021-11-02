@@ -47,14 +47,24 @@ export const LoadPlants = (props) => {
   }
 
   const captureData = async () => {
-    const res = await fetch("http://54.213.41.248:5000/dynamo/nates-esp32-1");
+    const res = await fetch("http://54.213.41.248:5000/dynamo/melody-esp32-1");
     rawData = await res.json();
   };
+
+  function checkExtremes(post) {
+    console.log(post.data);
+    if (post.data.temperature < 150) {
+      return true;
+    }
+    return false;
+  }
 
   async function filterData(posts) {
     posts.sort((x, y) => {
       return x.timestamp - y.timestamp;
     });
+
+    posts = posts.filter(checkExtremes);
 
     await setState(rawData);
     await console.log(state);
