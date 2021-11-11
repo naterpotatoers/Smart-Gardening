@@ -18,7 +18,6 @@ import Status from "./utils/Status";
 
 function App() {
   return (
-    hello
     <Router>
       <div className="App">
         <Navbar />
