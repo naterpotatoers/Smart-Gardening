@@ -1,0 +1,28 @@
+{
+  "name": "Smart-Gardening",
+  "version": "1.0.0",
+  "description": "[Smart Gardening POR](https://docs.google.com/presentation/d/14ahWVzLe1tVP0NiCHFWXRo8L30mx8BH9YqG-gT3xm0o/edit?usp=sharing)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naterpotatoers/Smart-Gardening.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naterpotatoers/Smart-Gardening/issues"
+  },
+  "homepage": "https://github.com/naterpotatoers/Smart-Gardening#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
