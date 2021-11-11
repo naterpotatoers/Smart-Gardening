@@ -4,10 +4,12 @@ import { AppModule } from './app.module';
 import { UsersModule } from './users/users.module';
 import { NodesModule } from './nodes/nodes.module';
 import { GardensModule } from './gardens/gardens.module';
-import { DataModule } from './data/data.module';
+import { PlantsModule } from './plants/plants.module';
+import { DynamoModule } from './dynamo/dynamo.module';
+import { ImageModule } from './image/image.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   const config = new DocumentBuilder()
     .setTitle('Smart Gardening API')
@@ -15,15 +17,22 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   // Add new modules to the include list to have them included in Swagger
-  const document = SwaggerModule.createDocument(app, config, {
-    include: [UsersModule, NodesModule, GardensModule, DataModule],
+  const swagger = SwaggerModule.createDocument(app, config, {
+    include: [
+      UsersModule,
+      NodesModule,
+      GardensModule,
+      PlantsModule,
+      ImageModule,
+      DynamoModule,
+    ],
   });
 
-  SwaggerModule.setup('/', app, document, {
+  SwaggerModule.setup('/', app, swagger, {
     customSiteTitle: 'Smart Gardening API',
   });
 
-  await app.listen(process.env.port);
+  await app.listen(5000);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();

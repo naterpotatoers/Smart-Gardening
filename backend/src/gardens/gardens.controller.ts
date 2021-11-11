@@ -29,16 +29,16 @@ export class GardensController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.gardensService.findOne(+id);
+    return this.gardensService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateGardenDto: UpdateGardenDto) {
-    return this.gardensService.update(+id, updateGardenDto);
+    return this.gardensService.update(id, updateGardenDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.gardensService.remove(+id);
+    return this.gardensService.remove(id);
   }
 }

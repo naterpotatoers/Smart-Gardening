@@ -1,12 +1,14 @@
+import { Typography } from "@material-ui/core";
+import React from "react";
 import LoginForm from "../components/LoginForm";
 
-const Login = () => {
+export default function App() {
   return (
-    <div className="login">
-      <h2>LoginPage</h2>
-      <LoginForm />
+    <div>
+      <Typography align="center">
+        <h2>Log In</h2>
+        <LoginForm />
+      </Typography>
     </div>
   );
-};
-
-export default Login;
+}

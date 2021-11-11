@@ -21,20 +21,29 @@ public:
     /// @return humidity value
     double getHumidity()
     {
+        if (isnan(humidity_))
+        {
+            humidity_ = -999;
+        }
+
         return humidity_;
     };
 
     /// @return temperature value
     double getTemperature()
     {
+        if (isnan(temperature_))
+        {
+            temperature_ = -999;
+        }
         return temperature_;
     };
 
     /// Nicely formatted logging statement
     void print()
     {
-        Serial.println(id_ + " temperature: " + temperature_);
-        Serial.println(id_ + " humidity: " + humidity_);
+        Serial.println(id_ + " temperature: " + getTemperature());
+        Serial.println(id_ + " humidity: " + getHumidity());
     };
 
 private:
