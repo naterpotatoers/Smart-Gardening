@@ -10,8 +10,9 @@ export const getPlants = (req, res) => {
   let query = "SELECT * FROM plants";
   connection.query(query, function (err, results, fields) {
     if (err) throw err;
-
-    res.send();
+    res.json({
+      results,
+    });
   });
 };
 
@@ -37,7 +38,9 @@ export const createPlant = (req, res) => {
   ]);
   connection.query(query, function (err, results, fields) {
     if (err) throw err;
-    res.send();
+    res.json({
+      results,
+    });
   });
 };
 
@@ -46,7 +49,9 @@ export const getPlant = (req, res) => {
   const query = `SELECT * FROM plants WHERE id = '${req.params.id}'`;
   connection.query(query, (err, results, fields) => {
     if (err) throw err;
-    res.send();
+    res.json({
+      results,
+    });
   });
 };
 
@@ -55,7 +60,9 @@ export const deletePlant = (req, res) => {
   const query = `DELETE FROM plants WHERE id = '${req.params.id}'`;
   connection.query(query, (err, results, fields) => {
     if (err) throw err;
-    res.send();
+    res.json({
+      results,
+    });
   });
 };
 
@@ -85,7 +92,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [commonName, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (scientificName) {
@@ -93,7 +102,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [scientificName, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (growingSeason) {
@@ -101,7 +112,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [growingSeason, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (weeksBeforeLastFrost) {
@@ -110,7 +123,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [weeksBeforeLastFrost, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (sunlight) {
@@ -118,7 +133,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [sunlight, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (tempMax) {
@@ -126,7 +143,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [tempMax, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (tempMin) {
@@ -134,7 +153,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [tempMin, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (humidityMax) {
@@ -142,7 +163,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [humidityMax, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (humidityMin) {
@@ -150,7 +173,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [humidityMin, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (phMax) {
@@ -158,7 +183,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [phMax, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
   if (phMin) {
@@ -166,7 +193,9 @@ export const updatePlant = (req, res) => {
     const query = mysql.format(queryString, [phMin, plant_id]);
     connection.query(query, (err, results, fields) => {
       if (err) throw err;
-      res.send();
+      res.json({
+        results,
+      });
     });
   }
 };
