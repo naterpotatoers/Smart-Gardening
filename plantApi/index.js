@@ -1,7 +1,6 @@
 import express from "express";
-import { getPlants } from "./plant-api/public/javascripts/plants.js";
 
-import plantsRoutes from "./plant-api/public/routes/plants.js";
+import plantsRoutes from "./routes/plants.js";
 
 //Establish BackEnd
 const app = express();
