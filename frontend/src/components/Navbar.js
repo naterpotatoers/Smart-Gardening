@@ -192,14 +192,14 @@ const Navbar = () => {
               <Divider></Divider>
 
               <MenuItem onClick={handleClose}>
-                <Link to="/start" style={{ textDecoration: "none" }}>
+                <Link to="/node" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
                     onMouseOver={MouseMover}
                     onMouseOut={MouseMout}
                     className={classes.root}
                   >
-                    Start
+                    Add Node
                   </Button>
                 </Link>
               </MenuItem>

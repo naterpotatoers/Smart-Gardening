@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div>
       <Typography align="center">
-        <h2>Log In</h2>
+        <h2>Login</h2>
         <LoginForm />
       </Typography>
     </div>
