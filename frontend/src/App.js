@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import How from "./pages/How";
-import Start from "./pages/Start";
+import Node from "./pages/Node";
 import All from "./pages/All";
 import Analytics from "./pages/Analytics";
 
@@ -43,8 +43,8 @@ function App() {
               <Route path="/how">
                 <How />
               </Route>
-              <Route path="/start">
-                <Start />
+              <Route path="/node">
+                <Node />
               </Route>
               <Route path="/all">
                 <All />

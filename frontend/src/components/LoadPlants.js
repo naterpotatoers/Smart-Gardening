@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
+import { AccountContext } from "../utils/Accounts";
 import { Line } from "react-chartjs-2";
 
 export const LoadPlants = (props) => {
-  const [state, setState] = useState({});
+  const [userEmail, setUserEmail] = useState("");
+  const { getSession } = useContext(AccountContext);
   const [temperatureState, setTemperatureState] = useState({});
   const [humidityState, setHumidityState] = useState({});
   const [soilMoistureState, setSoilMoistureState] = useState({});
   const [sunIntensityState, setSunIntensityState] = useState({});
   // const [timestampState, setTimestampState] = useState({});
-  console.log(props.userId);
   let rawData = [];
   let temperature = [];
   let humidity = [];
@@ -47,12 +48,21 @@ export const LoadPlants = (props) => {
   }
 
   const captureData = async () => {
-    const res = await fetch("http://54.213.41.248:5000/dynamo/melody-esp32-1");
+    console.log("email:", userEmail);
+    let nodes = await (await fetch("http://54.213.41.248:5000/nodes")).json();
+    nodes = await nodes.filter(removeNonUsersNodes);
+    console.log(nodes);
+    const res = await fetch(`http://54.213.41.248:5000/dynamo/${nodes[0].id}`); // hardcoded to first result for now
     rawData = await res.json();
   };
 
+  function removeNonUsersNodes(node) {
+    if (node.userId === userEmail) {
+      return true;
+    }
+    return false;
+  }
   function checkExtremes(post) {
-    console.log(post.data);
     if (post.data.temperature < 150) {
       return true;
     }
@@ -66,13 +76,10 @@ export const LoadPlants = (props) => {
 
     posts = posts.filter(checkExtremes);
 
-    await setState(rawData);
-    await console.log(state);
-
     timestamp = posts.map((item) => {
       return item.timestamp;
     });
-    // setTimestampState(timestamp);
+    // setTimestampState(timestamp); // breaks everything idk why
     temperature = posts.map((item) => {
       return item.data.temperature;
     });
@@ -92,6 +99,9 @@ export const LoadPlants = (props) => {
   }
 
   useEffect(async () => {
+    await getSession().then(({ email }) => {
+      setUserEmail(email);
+    });
     await captureData();
     await filterData(rawData);
   }, []);

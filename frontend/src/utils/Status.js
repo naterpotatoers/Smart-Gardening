@@ -31,7 +31,10 @@ const Status = () => {
           </Button>
         </h2>
       ) : (
-        <Link to="/login"></Link>
+        <>
+          <p>Please Login</p>
+          <Link to="/login"></Link>
+        </>
       )}
     </div>
   );
