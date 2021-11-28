@@ -137,19 +137,6 @@ const Navbar = () => {
               onClose={handleClose}
             >
               <MenuItem onClick={handleClose}>
-                <Link to="/all" style={{ textDecoration: "none" }}>
-                  <Button
-                    style={Mstyle}
-                    onMouseOver={MouseMover}
-                    onMouseOut={MouseMout}
-                    className={classes.root}
-                  >
-                    All
-                  </Button>
-                </Link>
-              </MenuItem>
-              <Divider></Divider>
-              <MenuItem onClick={handleClose}>
                 <Link to="/analytics" style={{ textDecoration: "none" }}>
                   <Button
                     style={Mstyle}
@@ -158,6 +145,20 @@ const Navbar = () => {
                     className={classes.root}
                   >
                     Analytics
+                  </Button>
+                </Link>
+              </MenuItem>
+              <Divider></Divider>
+
+              <MenuItem onClick={handleClose}>
+                <Link to="/all" style={{ textDecoration: "none" }}>
+                  <Button
+                    style={Mstyle}
+                    onMouseOver={MouseMover}
+                    onMouseOut={MouseMout}
+                    className={classes.root}
+                  >
+                    Photo
                   </Button>
                 </Link>
               </MenuItem>
