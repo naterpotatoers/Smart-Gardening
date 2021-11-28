@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+//import axios from "axios";
+
 
 export const LoadPlants = (props) => {
   const [state, setState] = useState({});
@@ -15,13 +17,22 @@ export const LoadPlants = (props) => {
   let soilMoisture = [];
   let sunIntensity = [];
   let timestamp = [];
+  let lables = [200];
+
+  const DATA_COUNT = 200;
+const bot = [];
+for (let i = 0; i < DATA_COUNT; ++i) {
+  bot.push(i.toString());
+}
 
   function createGraph(data, label, dates) {
     const graphInfo = {
-      labels: dates,
+      type: "line",
+      labels: lables,
       datasets: [
         {
           label: label,
+        
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(0,0,0,0)",
@@ -40,8 +51,18 @@ export const LoadPlants = (props) => {
           pointRadius: 1,
           pointHitRadius: 10,
           data: data,
+    
         },
+        
       ],
+      scale: {
+        x:{
+          max:100
+        },
+        y:{
+          max:100
+        }
+      }
     };
     return graphInfo;
   }
@@ -51,13 +72,18 @@ export const LoadPlants = (props) => {
     rawData = await res.json();
   };
 
+  //console.log(rawData);
+
   function checkExtremes(post) {
     console.log(post.data);
+   //console.log(post.data.temperature);
+
     if (post.data.temperature < 150) {
       return true;
     }
     return false;
   }
+
 
   async function filterData(posts) {
     posts.sort((x, y) => {
@@ -70,9 +96,14 @@ export const LoadPlants = (props) => {
     await console.log(state);
 
     timestamp = posts.map((item) => {
+      console.log(timestamp);
+
       return item.timestamp;
+
     });
-    // setTimestampState(timestamp);
+    console.log(timestamp.length);
+    //timestamp = timestamp - 1;
+    //await setTimestampState(timestamp);
     temperature = posts.map((item) => {
       return item.data.temperature;
     });
@@ -100,7 +131,7 @@ export const LoadPlants = (props) => {
     <div>
       <h2>Temperature</h2>
       <Line
-        data={createGraph(temperatureState, "Temperature", timestamp)}
+        data={createGraph(temperatureState, "Temperature", bot)}
         width={400}
         height={200}
       />

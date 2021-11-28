@@ -2,8 +2,8 @@ import { LoadImages } from "../components/LoadImages";
 
 const All = () => {
   return (
-    <div className="all">
-      <h2>All Plants</h2>
+    <div className="Album">
+      <h2>Photos:</h2>
       <LoadImages />
     </div>
   );

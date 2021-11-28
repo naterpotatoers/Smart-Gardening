@@ -11,14 +11,15 @@ import How from "./pages/How";
 import Start from "./pages/Start";
 import All from "./pages/All";
 import Analytics from "./pages/Analytics";
-
+import Bottom from "./pages/Bottom";
 import Navbar from "./components/Navbar";
 import { Account } from "./utils/Accounts";
 import Status from "./utils/Status";
 
 function App() {
   return (
-    <Router>
+    <div>
+<Router>
       <div className="App">
         <Navbar />
         <div className="content">
@@ -55,8 +56,14 @@ function App() {
             </Switch>
           </Account>
         </div>
+
       </div>
+
     </Router>
+    <Bottom/>
+
+    </div>
+    
   );
 }
 
