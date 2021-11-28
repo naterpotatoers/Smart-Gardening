@@ -14,7 +14,7 @@ export const LoadImages = () => {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch("http://54.213.41.248:5000/image")
+    fetch("http://54.190.195.163:5000/image")
       .then((res) => res.json())
       .then(
         (result) => {

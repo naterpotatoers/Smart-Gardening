@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 //import axios from "axios";
 
-
 export const LoadPlants = (props) => {
   const [state, setState] = useState({});
   const [temperatureState, setTemperatureState] = useState({});
@@ -20,10 +19,10 @@ export const LoadPlants = (props) => {
   let lables = [200];
 
   const DATA_COUNT = 200;
-const bot = [];
-for (let i = 0; i < DATA_COUNT; ++i) {
-  bot.push(i.toString());
-}
+  const bot = [];
+  for (let i = 0; i < DATA_COUNT; ++i) {
+    bot.push(i.toString());
+  }
 
   function createGraph(data, label, dates) {
     const graphInfo = {
@@ -32,7 +31,7 @@ for (let i = 0; i < DATA_COUNT; ++i) {
       datasets: [
         {
           label: label,
-        
+
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(0,0,0,0)",
@@ -51,24 +50,22 @@ for (let i = 0; i < DATA_COUNT; ++i) {
           pointRadius: 1,
           pointHitRadius: 10,
           data: data,
-    
         },
-        
       ],
       scale: {
-        x:{
-          max:100
+        x: {
+          max: 100,
         },
-        y:{
-          max:100
-        }
-      }
+        y: {
+          max: 100,
+        },
+      },
     };
     return graphInfo;
   }
 
   const captureData = async () => {
-    const res = await fetch("http://54.213.41.248:5000/dynamo/melody-esp32-1");
+    const res = await fetch("http://54.190.195.163:5000/dynamo/melody-esp32-1");
     rawData = await res.json();
   };
 
@@ -76,14 +73,13 @@ for (let i = 0; i < DATA_COUNT; ++i) {
 
   function checkExtremes(post) {
     console.log(post.data);
-   //console.log(post.data.temperature);
+    //console.log(post.data.temperature);
 
     if (post.data.temperature < 150) {
       return true;
     }
     return false;
   }
-
 
   async function filterData(posts) {
     posts.sort((x, y) => {
@@ -99,7 +95,6 @@ for (let i = 0; i < DATA_COUNT; ++i) {
       console.log(timestamp);
 
       return item.timestamp;
-
     });
     console.log(timestamp.length);
     //timestamp = timestamp - 1;
