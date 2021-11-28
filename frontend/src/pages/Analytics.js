@@ -1,12 +1,15 @@
-import { LoadPlants } from "../components/LoadPlants";
+//import { LoadPlants } from "../components/LoadPlants";
+import  {LoadGraphs } from "../components/LoadGraphs";
 
 const Analytics = () => {
   return (
     <div className="analytics">
-      <h2>Plant Analytics</h2>
-      <LoadPlants userId="admin@email.com" />
+      <br/>
+      <LoadGraphs/>
+      <br/>
     </div>
   );
 };
 
 export default Analytics;
+//<LoadPlants userId="admin@email.com" />

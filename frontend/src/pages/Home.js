@@ -7,11 +7,13 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
+//import { Forecast } from "../components/Forecast";
 
 const Home = () => {
   const Bstyle = {
     color: "white",
   };
+
 
   const useStyles = makeStyles({
     root: {
@@ -20,9 +22,21 @@ const Home = () => {
   });
 
   const classes = useStyles();
-
   return (
     <div>
+      <Box>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        </Box>
       <Grid container alignItems="center">
         <Card className={classes.root}>
           <CardActionArea>
@@ -58,3 +72,8 @@ const Home = () => {
 };
 
 export default Home;
+
+//<CardMedia> 
+//<h1 className="weather">React Weather App</h1>
+//<Forecast/>
+//</CardMedia>
