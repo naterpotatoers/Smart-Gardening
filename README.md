@@ -2,6 +2,10 @@
 
 [Architecture and Design Documentation](https://docs.google.com/presentation/d/14ahWVzLe1tVP0NiCHFWXRo8L30mx8BH9YqG-gT3xm0o/edit?usp=sharing)
 
+[Video Demo](https://www.youtube.com/watch?v=RLs6bitMUAE)
+
+[Project Report](https://docs.google.com/document/d/1FnsnlgTGP__GboWl5KBrWv6UGs8V7jg8/edit?usp=sharing&ouid=101431705313288909254&rtpof=true&sd=true)
+
 ## Setup Instructions
 
 Make sure to have node.js (v14.17+) and npm (v6.14+) installed. Also make sure to have ESP32 device and Raspberry Pi device and camera. These steps require the downloading of the repository code onto your machine.
