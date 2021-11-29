@@ -23,14 +23,16 @@ const How = () => {
       maxWidth: 200,
       marginTop: 20,
       marginBottom: 20,
-      fontSize: 20,
+      fontSize: 40,
 
     },
     rootCard: {
-      maxWidth: 300,
       maxHeight: 500,
       border: "none",
       boxShadow: "none",
+      marginLeft: 1,
+
+
     },
     table: {
       minWidth: 650,
@@ -59,9 +61,9 @@ const How = () => {
     //GY-30
     createData('GY-30', //NAME
       <Card
-        className={classes.rootCard} //DESCRIPTION
+      className={classes.rootCard} //DESCRIPTION
       >
-        <Typography>
+        <Typography >
           {bull} Digital Light Intensity Sensor
           {bull}Main Chip：ROHM the original BH1750FVI<br></br>
           {bull}The sensor built 16bitAD converter <br></br>
@@ -91,6 +93,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           GY-30
         </Button>
@@ -131,6 +135,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           DHT11
         </Button>
@@ -169,6 +175,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           Soil Moisture Sensor
         </Button>
@@ -210,6 +218,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           Jumper Cable
         </Button>
@@ -252,6 +262,8 @@ const How = () => {
           <Button
             variant="contained"
             color="primary"
+            style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
           >
             Recomended ESP32
           </Button>
@@ -306,6 +318,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           USB-C CABLE/BLOCK
         </Button>
@@ -347,6 +361,8 @@ const How = () => {
         <Button
           variant="contained"
           color="primary"
+          style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
+
         >
           Breadboard
         </Button>
@@ -362,11 +378,11 @@ const How = () => {
     //PAGE CONTENT 
     <div>
       <Box m={5}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h3" align="center">
           <p>Road to unlocking achievement of Plant Master:</p>
         </Typography>
 
-        <Typography variant="h6" align="justify">
+        <Typography variant="h5" align="justify">
           &nbsp;&nbsp;&nbsp; How to get started raising a plant from level one.
           Plants need a lot of time, water and sun. Often life can get really hectic.
           Simple task fall thought the cracks, leaving many plants with out water. Resulting in death of your plant pet.
@@ -381,15 +397,13 @@ const How = () => {
           direction="column"
           alignItems="center"
           justify="center"
-          style={{ minHeight: '20vh' }}
         >
-          <Grid item xs={12}>
-            <Card className={classes.root} >
+          <Grid>
+            <Card sx={{ maxWidth: 1000 }} >
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  alt="Sprout"
-                  height="200"
+                  alt="Sprout"       
                   image="./images/Sprout.jpg"
                   title="Sprout"
                 />
@@ -402,37 +416,69 @@ const How = () => {
       <Box marginBottom={5}>
         <Card>
           <CardContent>
-            <Typography variant="h5">Step 1:</Typography>
-            <Typography variant="h6" align="center">
+            <Typography variant="h4">Step 1:</Typography>
+            <Typography variant="h4" align="center">
               &nbsp;&nbsp;&nbsp;Let's get started! Gathering all the parts.
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 Parts List:
               </Typography>
               <TableContainer component={Paper}>
                 <Table className={classes.table}  >
                   <TableHead className={classes.rootTablehead}>
                     <TableRow>
-                      <TableCell >
-                        <Typography variant="body">
+                      <TableCell style={{minWidth: 200}} >
+                        <Typography variant="h6"  >
                           Name
                         </Typography>
                       </TableCell>
-                      <TableCell >Description</TableCell>
-                      <TableCell >Price</TableCell>
-                      <TableCell >Image</TableCell>
-                      <TableCell >Link</TableCell>
+                      <TableCell style={{minWidth: 400}} >
+                      <Typography variant="h6"  >
+                        Description
+                      </Typography>
+                        </TableCell>
+                      <TableCell style={{minWidth: 100}}>
+                      <Typography variant="h6"  >
+                        Price
+
+                          </Typography>
+                        </TableCell>
+                      <TableCell style={{minWidth: 200}}>
+                      <Typography variant="h6"  >
+                        Image
+
+                          </Typography>
+                        </TableCell>
+                      <TableCell style={{minWidth: 200}}>
+                      <Typography variant="h6"  >
+                        Link
+
+                          </Typography>
+                        </TableCell>
                     </TableRow>
                   </TableHead>
-                  <TableBody alignItems="Left" className={classes.rootCard}>
+                  <TableBody alignItems="Left">
                     {rows.map((row) => (
                       <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">
+                        <TableCell  component="th" scope="row">
+                          <Typography variant="h6">
                           {row.name}
+                            </Typography>
                         </TableCell>
                         <TableCell variant="caption">{row.description}</TableCell>
-                        <TableCell >{row.price}</TableCell>
+                        <TableCell >
+                          <Typography>
+                                                    {row.price}
+
+                            </Typography>
+                          </TableCell>
                         <TableCell >{row.image}</TableCell>
-                        <TableCell >{row.link}</TableCell>
+                        <TableCell >
+                        <Typography variant="h6"  >
+                        {row.link}
+
+                          </Typography>
+
+                          </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -447,7 +493,7 @@ const How = () => {
       <Box marginBottom={5}>
         <Card>
           <CardContent>
-            <Typography variant="h5" m>
+            <Typography variant="h4" >
               Step 2:
             </Typography>
 
@@ -460,7 +506,7 @@ const How = () => {
             //style={{ minHeight: '20vh' }}
             >
               <Grid item xs={12}>
-                <Typography variant="h6" align="center">
+                <Typography variant="h4" align="center">
                   Connection &nbsp;&nbsp;&nbsp;
                 </Typography>
                 <Divider />
@@ -468,7 +514,7 @@ const How = () => {
 
               <Grid item xs={4}  >
                 <Box marginTop={20} marginLeft={2}>
-                  <Typography variant="body1" align="center">
+                  <Typography variant="h6" align="center">
                     {bull}Connect the bread board as diagram shows.
                   </Typography>
                 </Box>
@@ -476,7 +522,7 @@ const How = () => {
               </Grid>
 
               <Grid item xs={8}>
-                <Box margin={2} border={1}>
+                <Box margin={2} border={1} style={{maxWidth: 600}} >
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -495,7 +541,7 @@ const How = () => {
               <Grid item xs={6}>
                 <Divider />
                 <Box marginTop={10} marginLeft={2} >
-                  <Typography>
+                  <Typography variant="h6">
                     {bull}Connect both pieces in the image that are marked yellow together. <br></br>
                     {bull}Connect the purple outline piece with the soil sensor cable from the previous image.
                   </Typography>
@@ -505,7 +551,7 @@ const How = () => {
 
               <Grid item xs={6}>
                 <Divider />
-                <Box margin={2} border={1}>
+                <Box margin={2} border={1} style={{maxWidth: 600}}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -525,7 +571,7 @@ const How = () => {
                 <Divider />
                 <Box marginTop={15} marginLeft={2}>
 
-                  <Typography>
+                  <Typography variant="h6">
                     {bull}What connections should look like in the end.
                   </Typography>
                 </Box>
@@ -534,7 +580,7 @@ const How = () => {
 
               <Grid item xs={8}>
                 <Divider />
-                <Box margin={2} border={1}>
+                <Box margin={2} border={1} style={{maxWidth: 600}}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
@@ -559,7 +605,7 @@ const How = () => {
 
         <Card>
           <CardContent>
-            <Typography variant="h5" m>
+            <Typography variant="h4" m>
               Step 3:
             </Typography>
             <Grid
@@ -569,18 +615,17 @@ const How = () => {
               justify="center"
             >
               <Grid item xs={16}>
-                <Typography variant="h6" align="center">
+                <Typography variant="h4" align="center">
                   Download Platformio
                 </Typography>
                 <Divider />
               </Grid>
 
-              <Grid item xs={8}>
+              <Grid item xs={8} style={{maxWidth: 600}}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
                     alt="Sprout"
-                    height="100"
                     image="./images/PIO.jpg"
                     title="Sprout" />
                 </CardActionArea>
@@ -596,8 +641,12 @@ const How = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    style={{maxWidth: '100px', maxHeight: '30px', minWidth: '400px', minHeight: '60px'}}
                   >
+                    <Typography variant="h6">
                     Download Link
+
+                      </Typography>
                   </Button>
                 </Link>
               </Grid>
@@ -609,7 +658,7 @@ const How = () => {
       <Box marginBottom={5}>
         <Card>
           <CardContent>
-            <Typography variant="h5" m>
+            <Typography variant="h4" m>
               Step 4:
             </Typography>
             <Grid
@@ -619,7 +668,7 @@ const How = () => {
               justify="center"
             >
               <Grid item xs={8}>
-                <Typography variant="h6" align="center">
+                <Typography variant="h4" align="center">
                   Download code from git
                 </Typography>
                 <Divider />
@@ -634,8 +683,12 @@ const How = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    style={{maxWidth: '100px', maxHeight: '30px', minWidth: '100px', minHeight: '60px', fontWeight: '600'}}
+
                   >
-                    Git
+                    <Typography variant="h6">
+                      Git
+                      </Typography>
                   </Button>
                 </Link>
               </Grid>
@@ -648,7 +701,7 @@ const How = () => {
       <Box marginBottom={5}>
         <Card>
           <CardContent>
-            <Typography variant="h5" m>
+            <Typography variant="h4" m>
               Step 5:
             </Typography>
             <Grid
@@ -658,22 +711,76 @@ const How = () => {
               justify="center"
             >
               <Grid item xs={8}>
-                <Typography variant="h6" align="center">
+                <Typography variant="h4" align="center">
                   Flash Device
                 </Typography>
                 <Divider />
               </Grid>
 
               <Grid item xs={8}>
-                <Typography variant="body1">
-                  INSTRUCTIONS TO BE ADDED
+                <Typography variant="h5" align="center">
+                  INSTRUCTIONS:
+                  <br/>
+                  Step 1: Open up the iot folder within platform io
+                  <br/>
+                  Step 2: Click 'upload' button to upload code to the device
 
                 </Typography>
               </Grid>
             </Grid>
+          </CardContent>
+        </Card>
+      </Box>
 
+      <Box marginBottom={5}>
+        <Card>
+          <CardContent>
+            <Typography variant="h4" m>
+              Step 6:
+            </Typography>
+            <Grid
+              container spacing={2}
+              direction="column"
+              alignItems="center"
+              justify="center"
+            >
+              <Grid item xs={8}>
+                <Typography variant="h4" align="center">
+                  3D Printing Files
+                </Typography>
+                <Divider />
+              </Grid>
 
+              <Grid item xs={8}>
+                <Typography variant="h5" align = "center">
+                <Link
+                  variant="body2"
+                  align="Left"
+                  href="                https://drive.google.com/drive/folders/1RUrkEgFQBM1Q_YZalBCF5cvodM8Q2YQY?usp=sharing
+                  " //LINK
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    style={{maxWidth: '100px', maxHeight: '30px', minWidth: '200px', minHeight: '60px', fontWeight: '600'}}
 
+                  >
+                    <Typography variant="h6">
+                    File Link
+
+                      </Typography>
+                  </Button>
+                  <br/>
+                  <br/>
+
+                </Link>
+                .STL file is for printing
+                <br/>
+                .SLDPRT is for editing the piece in solidworks
+                </Typography>
+              </Grid>
+            </Grid>
           </CardContent>
         </Card>
       </Box>

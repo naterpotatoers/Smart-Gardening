@@ -9,8 +9,7 @@ const Bottom = () => {
 
 <div>
                 <BottomNavigation  showLabels sx={{ maxHeight:'100%', maxWidth:'100%' }}>
-                <BottomNavigationAction sx={{ maxHeight:'100%', maxWidth:'100%' }} label = "All Rights Reserved 2021 @CMPE195 Created by: Garza,Gilani,Hernandez,Sembrano
-"/>
+                <BottomNavigationAction sx={{ maxHeight:'100%', maxWidth:'100%' }} label = "All Rights Reserved 2021 @CMPE195 Created by: Garza,Gilani,Hernandez,Sembrano"/>
                 </BottomNavigation>
                 
             </div>
