@@ -801,7 +801,7 @@ const How = () => {
                 </Typography>
                 <br/>
               </Grid>
- <Grid item xs={4} style={{maxWidth: 400}} >
+              <Grid item xs={4} style={{maxWidth: 400}} >
                 <CardActionArea>
                   <CardMedia
                     component="img"
