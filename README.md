@@ -4,7 +4,7 @@
 
 ## Setup Instructions
 
-Make sure to have node.js and npm installed. Also make sure to have ESP32 device and Raspberry Pi device and camera.
+Make sure to have node.js (v14.17+) and npm (v6.14+) installed. Also make sure to have ESP32 device and Raspberry Pi device and camera.
 
 ### ESP32 Setup
 
@@ -27,7 +27,7 @@ Make sure to have node.js and npm installed. Also make sure to have ESP32 device
 1. Switch into backend directory
 2. Run the command `npm install`
 3. Run the command `npm run build`
-4. Add necessary .env file for reading and writing from the databases
+4. Add necessary .env file for reading and writing from the databases (should be included with file already)
 5. Run the command `npm start`
 
 ### Plant API Setup
