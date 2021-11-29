@@ -673,6 +673,16 @@ const How = () => {
                 </Typography>
                 <Divider />
               </Grid>
+              <Grid item xs={8} style={{maxWidth: 600}}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    alt="Git"
+                    image="./images/git.jpg"
+                    title="Git" />
+                </CardActionArea>
+                <Divider />
+              </Grid>
               <Grid item xs={5}>
 
                 <Link
@@ -750,6 +760,16 @@ const How = () => {
                 </Typography>
                 <Divider />
               </Grid>
+              <Grid item xs={8} style={{maxWidth: 600}}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    alt="case"
+                    image="./images/case.jpg"
+                    title="case" />
+                </CardActionArea>
+                <Divider />
+              </Grid>
 
               <Grid item xs={8}>
                 <Typography variant="h5" align = "center">
@@ -779,13 +799,39 @@ const How = () => {
                 <br/>
                 .SLDPRT is for editing the piece in solidworks
                 </Typography>
+                <br/>
               </Grid>
-            </Grid>
+ <Grid item xs={4} style={{maxWidth: 400}} >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    alt="case2"
+                    image="./images/case2.jpg"
+                    title="case2" 
+                    align="center"
+                    />
+                </CardActionArea>
+                <Divider />
+              </Grid>
+              <br/>
+            <Grid item xs={8} style={{maxWidth: 400}}>
+                <CardActionArea>
+                    <CardMedia
+                    component="img"
+                    alt="case2"
+                    image="./images/case3.jpg"
+                    title="case2" />
+                </CardActionArea>
+                <Divider />
+              </Grid>
+      </Grid>
+
+           
+           
           </CardContent>
         </Card>
       </Box>
 
-      <Grid container alignItems="center"></Grid>
     </div>
   );
 };
