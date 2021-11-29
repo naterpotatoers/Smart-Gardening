@@ -625,9 +625,9 @@ const How = () => {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    alt="Sprout"
-                    image="./images/PIO.jpg"
-                    title="Sprout" />
+                    alt="PlatformIO"
+                    image="./images/plat.jpg"
+                    title="PlatformIO" />
                 </CardActionArea>
                 <Divider />
               </Grid>
