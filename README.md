@@ -4,7 +4,7 @@
 
 ## Setup Instructions
 
-Make sure to have node.js (v14.17+) and npm (v6.14+) installed. Also make sure to have ESP32 device and Raspberry Pi device and camera.
+Make sure to have node.js (v14.17+) and npm (v6.14+) installed. Also make sure to have ESP32 device and Raspberry Pi device and camera. These steps require the downloading of the repository code onto your machine.
 
 ### ESP32 Setup
 
@@ -14,7 +14,9 @@ Make sure to have node.js (v14.17+) and npm (v6.14+) installed. Also make sure t
 
 1. Plug in RPi Camera to RPi device
 2. Wire up relay using pin 21 to actuate relay and water solenoid valve
-3. run iot-rpi/aws-iot-core.py code on RPi device
+3. Clone this repo onto RPi device `git clone https://github.com/naterpotatoers/Smart-Gardening.git`
+4. Switch into iot-rpi directory
+5. Run the command on RPi device `python3 aws-iot-core.py`
 
 ### Frontend Setup
 
